@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-product-selection"
+ role="reference" xml:lang="de"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>Auswahl eines Produkts und eines Installationsmodus</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+       In diesem Schritt wählen Sie das Produkt und dessen Installationsmodus aus.
+      </para>
+    </abstract>
+  </info>
+  <figure os="sles;sles4sap" xml:id="fig-deployment-manual-product-selection">
+    <title>&agama; Produktauswahl des Installers</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>Screenshot des &agama;-Installers, der die Produktauswahl zeigt. Er ermöglicht die Installation von &slsa; und &sles4sapa; im Standard- oder unveränderlichen Modus.</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata fileref="agama-installation-sles-select-product.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata fileref="agama-installation-sles-select-product.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <para os="sles;sles4sap">
+    Wählen Sie &productname; &productnumber; für die Installation aus und bestimmen Sie den Installationsmodus:
+  </para>
+  <variablelist>
+    <title>Installationsmodi</title>
+    <varlistentry>
+      <term><guilabel>Standard</guilabel></term>
+      <listitem>
+        <para>
+          Das Dateisystem ist beschreibbar. Dieser Modus bietet maximale Flexibilität.
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><guilabel>Unveränderlich</guilabel></term>
+      <listitem>
+        <para>
+          Das Root-Dateisystem ist schreibgeschützt. Updates werden atomar auf einen neuen Snapshot angewendet. Der Snapshot wird nach einem Neustart aktiv.
+        </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>
+    Lesen Sie die Lizenz durch und bestätigen Sie Ihr Einverständnis, um fortzufahren.
+  </para>
+  <tip>
+    <title>Zusätzliche Installer-Funktionen</title>
+    <para>
+      Oben rechts im Installer befindet sich eine Symbolleiste mit Icons für den Zugriff auf zusätzliche Installer-Funktionen:
+    </para>
+    <variablelist>
+      <title>Icons (von links nach rechts)</title>
+      <varlistentry>
+        <term>Symbol 'Status'</term>
+        <listitem>
+          <para>
+            Zeigt den Status des Installers an. <literal>Idle</literal> bedeutet, dass der Installer auf eine Eingabe wartet.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Sprach- und Tastatur-Icons</term>
+        <listitem>
+          <para>
+            Ermöglicht das Ändern der Sprache und des Tastaturlayouts des Installers. Dies betrifft nur die Benutzeroberfläche des Installers, nicht das zu installierende Produkt. Sie können die Lokalisierung des Produkts später in <xref linkend="reference-deployment-manual-language-region"/> anpassen.
+          </para>
+          <!--
+          <para>
+            The keyboard layout can only be changed on local installations. If you are using a Web
+            browser for a remote installation, configure the preferred content language in the
+            browser settings and reload the installer.
+          </para>
+          -->
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Erscheinungsbild-Symbol</term>
+        <listitem>
+          <para>
+            Ermöglicht das Ändern des Farbschemas und des Kontrasts des Installers.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Weiter</term>
+        <listitem>
+          <para>
+            Ermöglicht das Herunterladen der Konfiguration im JSON-Format sowie der Installationsprotokolle.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    
+  </tip>
+</topic>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-product-selection"
+ role="reference" xml:lang="ja"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>製品とインストールモードの選択</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+       このステップでは、製品とそのインストールモードを選択します。
+      </para>
+    </abstract>
+  </info>
+  <figure os="sles;sles4sap" xml:id="fig-deployment-manual-product-selection">
+    <title>&agama; インストーラーの製品選択</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>製品選択画面が表示されている&agama;インストーラーのスクリーンショット。&slsa;および&sles4sapa;を標準モードまたは不変モードでインストールできます。</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata fileref="agama-installation-sles-select-product.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata fileref="agama-installation-sles-select-product.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <para os="sles;sles4sap">
+    インストールする&productname; &productnumber;を選択し、そのインストールモードを選択します：
+  </para>
+  <variablelist>
+    <title>インストールモード</title>
+    <varlistentry>
+      <term><guilabel>Standard</guilabel></term>
+      <listitem>
+        <para>
+          ファイルシステムは書き込み可能です。このモードは最大限の柔軟性を提供します。
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><guilabel>不変</guilabel></term>
+      <listitem>
+        <para>
+          ルートファイルシステムは書き込み保護されています。更新は新しいスナップショットにアトミックに適用されます。スナップショットは再起動後に有効になります。
+        </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>
+    続行するには、使用許諾契約書を読み、同意してください。
+  </para>
+  <tip>
+    <title>インストーラーのその他の機能</title>
+    <para>
+      インストーラーの右上には、その他のインストーラー機能にアクセスするためのアイコンが並んだツールバーがあります。
+    </para>
+    <variablelist>
+      <title>アイコン（左から右へ）</title>
+      <varlistentry>
+        <term>ステータスアイコン</term>
+        <listitem>
+          <para>
+            インストーラーの状態を表示します。<literal>Idle</literal>は、インストーラーが入力を待機していることを意味します。
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>言語およびキーボードアイコン</term>
+        <listitem>
+          <para>
+            インストーラーの言語とキーボードレイアウトを変更できます。これはインストーラーのインターフェースのみに影響し、インストールされる製品には影響しません。製品のローカライズは、後で<xref linkend="reference-deployment-manual-language-region"/>から調整できます。
+          </para>
+          <!--
+          <para>
+            The keyboard layout can only be changed on local installations. If you are using a Web
+            browser for a remote installation, configure the preferred content language in the
+            browser settings and reload the installer.
+          </para>
+          -->
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>外観アイコン</term>
+        <listitem>
+          <para>
+            インストーラーの配色とコントラストを変更できます。
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>詳細</term>
+        <listitem>
+          <para>
+            JSON形式の設定とインストールログをダウンロードできます。
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    
+  </tip>
+</topic>

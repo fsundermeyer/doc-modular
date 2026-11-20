@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-sle16-system-requirements"
+ role="reference" xml:lang="fr"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>Configuration système requise</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+        L'installation nécessite les ressources minimales suivantes pour &productname;. Cette section liste également des recommandations pour des utilisations spécifiques. 
+      </para>
+    </abstract>
+  </info>
+  <variablelist>
+    <title>Configuration système minimale pour l'installation</title>
+    <varlistentry>
+      <term>UC</term>
+      <listitem>
+        <para arch="arm">
+          Armv8.0-A ou supérieur
+        </para>
+        <para arch="power">
+          POWER10 ou supérieur
+        </para>
+        <para arch="x86_64">
+           &amd64; ou &intel64;, niveau de micro-architecture x86-64-v2 ou supérieur
+        </para>
+        <para arch="zseries">
+          z14 ou supérieur
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Mémoire</term>
+      <listitem>
+        <para arch="arm;x86_64;zseries">
+          1024 MiB de RAM
+        </para>
+        <para arch="power">
+          2048 MiB de RAM
+        </para>
+        <para arch="arm;x86_64;zseries">
+          512 MiB de swap recommandés
+        </para>
+        <para arch="power">
+          1024 MiB de swap recommandés
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Disque dur</term>
+      <listitem>
+        <para>
+          2 GiB d'espace disque disponible (il est recommandé d'en prévoir davantage, 8,5 GiB pour tous les modèles) ; 32 GiB pour l'instantané/le retour à l'état initial du système d'exploitation
+        </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <itemizedlist>
+    <title>Recommandations pour des usages spécifiques</title>
+    <listitem>
+      <para>
+        1 GiB à 8 GiB de RAM, au moins 512 MiB par UC
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        8 GiB d'espace disque dur, 32 GiB pour l'instantané/le retour à l'état initial du système d'exploitation
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Pour les serveurs d'impression : processeur plus rapide ou processeurs supplémentaires pour améliorer l'impression côté serveur
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Pour les serveurs Web : RAM supplémentaire pour améliorer la mise en cache et processeurs supplémentaires pour améliorer les performances des applications Web
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Pour les serveurs de bases de données : RAM supplémentaire pour améliorer la mise en cache et disques multiples pour les E/S parallèles
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Pour les serveurs de fichiers : mémoire et disques supplémentaires, ou un système RAID, pour améliorer le débit d'E/S
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Pour les applications SAP : mémoire et disques supplémentaires tels que recommandés par SAP
+      </para>
+    </listitem>
+  </itemizedlist>
+</topic>

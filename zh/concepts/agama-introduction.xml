@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="agama-introduction"
+ role="concept" xml:lang="zh"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+    <title>&agama; 简介</title>
+    <!-- can be changed via merge in the assembly -->
+    <!--add author's email address-->
+    <meta name="souvik.sarkar@suse.com" content="" its:translate="no"/>
+    <abstract>
+      <!-- can be changed via merge in the assembly -->
+      <para>
+        本节简要概述了 &agama;，它是 &productname; &productnumber; 及更高版本的默认安装程序。
+      </para>
+    </abstract>
+  </info>
+  <para>
+    &agama; 是由 &suse; 开发的一款灵活且功能强大的开源安装程序。您可使用它在多种计算机体系结构上，手动或自动安装支持的 &productname; 版本。基于 &agama;&dash; 的安装方式提供直观的界面，供用户选用适合不同使用场景和工作负载的<emphasis>开箱&dash;即&dash;用</emphasis>映像。结合 &cockpit; 和 &ansible; 使用时，它可替代 &productname; 中的 &yast;。
+  </para>
+  <!-- section xml:id="concept-example-how-it-works">
+    <title>How does foo bar work?</title>
+    <para>
+    A paragraph of text, answering the question above and explaining the mechanism behind foo
+    bar.
+    </para>
+    <figure xml:id="fig-one">
+    <title>A figure</title>
+    <mediaobject>
+    <imageobject role="html">
+    <imagedata fileref="example.png"/>
+    </imageobject>
+    <imageobject role="fo">
+    <imagedata fileref="example.png" width="85%"/>
+    </imageobject>
+    </mediaobject>
+    </figure>
+    </section>
+    <section xml:id="concept-example-benefits">
+    <title>Benefits of foo bar</title>
+    <para>
+    A paragraph of text, pointing out the benefits of foo bar.
+    </para>
+    </section-->
+</topic>

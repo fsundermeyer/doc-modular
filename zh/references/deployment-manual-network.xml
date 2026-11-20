@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-network"
+ role="reference" xml:lang="zh"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>配置网络</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+       在<guilabel>网络</guilabel>屏幕中管理网络连接。
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-network">
+    <title>&agama;安装程序网络设置</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>用于&productname; &productnumber;的&agama;安装程序屏幕截图，显示网络配置页面。它列出了活动的网络接口、IP 地址以及添加新有线或 Wi-Fi 连接的选项。</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-network.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-network.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-network.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-network.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <para>
+    概览以表格形式显示了已配置的网络连接。点击标题可按名称、类型、状态、设备或 IP 地址对连接进行排序。您还可以按名称（使用通配符）、类型和状态进行过滤。
+  </para>
+  <para>
+  </para>
+  <section xml:id="reference-deployment-manual-network-edit">
+    <title>编辑连接</title>
+    <para>
+      默认情况下，&agama; 使用 DHCP 配置连接。要编辑连接，请点击行末的三个点或该行。下列选项可用：
+    </para>
+    <variablelist>
+      <varlistentry>
+        <term>细节</term>
+        <listitem>
+          <para>显示连接详细信息，包括当前状态和配置。
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>编辑连接</term>
+        <listitem>
+          <para>
+            编辑连接。有关细节，请参见 <xref linkend="reference-deployment-manual-network-add"/>。
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>断开连接</term>
+        <listitem>
+          <para>
+            暂时断开连接。
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>删除此文件修订版</term>
+        <listitem>
+          <para>
+            删除连接并释放设备以用于其他连接。
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+  <section xml:id="reference-deployment-manual-network-add" >
+    <title>添加新连接</title>
+    <para>
+      点击<guimenu>添加连接</guimenu>以配置新的网络连接。支持以下类型：
+    </para>
+    <variablelist role="tabs">
+      <varlistentry>
+        <term>以太网</term>
+        <listitem>
+          <variablelist>
+            <title>以太网设置</title>
+            <varlistentry>
+              <term>名称</term>
+              <listitem>
+                <para>
+                  连接名称。有意义的名称可以使用目标（<replaceable>Internet</replaceable>）、连接类型（<replaceable>Ethernet</replaceable>）或设备（<replaceable>eth0</replaceable>，如果启用了设备绑定）。自由文本，但建议避免使用特殊字符。
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>设备绑定</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>无</term>
+                    <listitem>
+                      <para>
+                        该连接适用于所有设备。系统重启或迁移后，设备可能会发生变化。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>按名称选择</term>
+                    <listitem>
+                      <para>
+                        该连接在系统中通过其名称进行标识。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>按 MAC 选择</term>
+                    <listitem>
+                      <para>
+                        该连接通过其物理地址进行标识。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+                <para>
+                  其中一个选项是<guilabel>无</guilabel>
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>IPv4 设置</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>自动</term>
+                    <listitem>
+                      <para>
+                        IP 地址和网关通过 DHCP 从网络分配。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>手动</term>
+                    <listitem>
+                      <para>
+                        静态 IP 地址、子网掩码和网关。输入 IPv4 地址，例如 <replaceable>192.168.1.1.</replaceable> 或 <replaceable>192.168.1.1/24</replaceable>。如果省略，将自动添加前缀。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>自动 + 手动</term>
+                    <listitem>
+                      <para>
+                        来自网络的 DHCP 配置以及静态地址和网关。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>IPv6 设置</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>自动</term>
+                    <listitem>
+                      <para>
+                        IP 地址和网关通过 DHCP 从网络分配。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>手动</term>
+                    <listitem>
+                      <para>
+                        静态 IP 地址、子网掩码和网关。输入 IPv6 地址，例如 <replaceable>2001:db8::1</replaceable> 或 <replaceable>2001:db8::1/64</replaceable>。如果省略，将自动添加前缀。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>自动 + 手动</term>
+                    <listitem>
+                      <para>
+                        来自网络的 DHCP 配置以及静态地址和网关。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>使用自定义 DNS 服务器</term>
+              <listitem>
+                <para>
+                  启用自定义 DNS 服务器并指定其地址。
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>使用自定义 DNS 搜索域</term>
+              <listitem>
+                <para>
+                  启用自定义 DNS 搜索域并指定域名，例如<replaceable>&exampledomain;</replaceable>。
+                </para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>绑定</term>
+        <listitem>
+          <variablelist>
+            <title>绑定设置</title>
+            <varlistentry>
+              <term>名称</term>
+              <listitem>
+                <para>
+                  连接名称。有意义的名称可以包含目标（<replaceable>Internet</replaceable>）、连接类型（<replaceable>Bond</replaceable>）或设备（<replaceable>bond0</replaceable>，如果启用了设备绑定）。自由文本，但出于实际原因，建议避免使用特殊字符。
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>设备名</term>
+              <listitem>
+                <para>
+                  提供设备名称，例如 <replaceable>bond0</replaceable>。
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>绑定模式</term>
+              <listitem>
+                <para>
+                  选择绑定模式：
+                </para>
+                <variablelist>
+                  <varlistentry>
+                    <term>balance-rr</term>
+                    <listitem>
+                      <para>
+                        数据包依次通过第一个到最后一个可用接口传输。提供容错和负载平衡。需要交换机支持。某些交换机在此模式下可能出现故障。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>主备模式</term>
+                    <listitem>
+                      <para>
+                        只有一个网络接口处于活动状态。如果它发生故障，另一个接口将变成活动状态。提供容错。不需要特定的交换机支持。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>balance-xor</term>
+                    <listitem>
+                      <para>
+                        流量会根据绑定设备中包含的接口数量在所有可用接口间拆分。提供容错和负载平衡。需要交换机支持。某些交换机在此模式下可能出现故障。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>broadcast</term>
+                    <listitem>
+                      <para>
+                        在所有接口上广播所有流量。提供容错。需要交换机支持。某些交换机在此模式下可能出现故障。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>802.3ad</term>
+                    <listitem>
+                      <para>
+                        也称为 LACP。LACP 组中的所有接口都必须配置相同的速度和双工设置，并且必须连接到同一交换机。提供容错和负载平衡。需要接口驱动程序提供的 <command>ethtool</command> 支持，以及支持 IEEE 802.3ad 动态链路聚合并进行了相应配置的交换机。如果您的交换机支持此模式，则这是首选模式。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>balance-tlb</term>
+                    <listitem>
+                      <para>
+                        自适应传输负载平衡。提供容错和负载平衡。需要接口驱动程序中提供 <command>ethtool</command> 支持。不需要特定的交换机支持，但某些交换机在此模式下可能出现故障。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>balance-alb</term>
+                    <listitem>
+                      <para>
+                        自适应负载平衡。提供容错和负载平衡。需要接口驱动程序中提供 <command>ethtool</command> 支持。不需要特定的交换机支持，但某些交换机在此模式下可能出现故障。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>IPv4 设置</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>自动</term>
+                    <listitem>
+                      <para>
+                        IP 地址和网关通过 DHCP 从网络分配。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>手动</term>
+                    <listitem>
+                      <para>
+                        静态 IP 地址、子网掩码和网关。输入 IPv4 地址，例如 <replaceable>192.168.1.1.</replaceable> 或 <replaceable>192.168.1.1/24</replaceable>。如果省略，将自动添加前缀。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>自动 + 手动</term>
+                    <listitem>
+                      <para>
+                        来自网络的 DHCP 配置以及静态地址和网关。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>IPv6 设置</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>自动</term>
+                    <listitem>
+                      <para>
+                        IP 地址和网关通过 DHCP 从网络分配。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>手动</term>
+                    <listitem>
+                      <para>
+                        静态 IP 地址、子网掩码和网关。输入 IPv6 地址，例如 <replaceable>2001:db8::1</replaceable> 或 <replaceable>2001:db8::1/64</replaceable>。如果省略，将自动添加前缀。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>自动 + 手动</term>
+                    <listitem>
+                      <para>
+                        来自网络的 DHCP 配置以及静态地址和网关。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>网桥</term>
+        <listitem>
+          <variablelist>
+            <title>网桥设置</title>
+            <varlistentry>
+              <term>名称</term>
+              <listitem>
+                <para>
+                  连接名称。有意义的名称可以包含目标（<replaceable>Internet</replaceable>）、连接类型（<replaceable>Bridge</replaceable>）或设备（<replaceable>br0</replaceable>，如果启用了设备绑定）。自由文本，但建议避免使用特殊字符。
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>设备名</term>
+              <listitem>
+                <para>
+                  设备名称，例如 <replaceable>br0</replaceable>
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>生成树协议（STP）</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>默认</term>
+                    <listitem>
+                      <para>
+                        （使用系统默认设置启用）
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>自定义</term>
+                    <listitem>
+                      <para>
+                        自定义（通过手动设置显式启用）：转发延迟（可选）
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>已禁用</term>
+                    <listitem>
+                      <para>
+                        （此网桥未使用）
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>IPv4 设置</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>自动</term>
+                    <listitem>
+                      <para>
+                        IP 地址和网关通过 DHCP 从网络分配。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>手动</term>
+                    <listitem>
+                      <para>
+                        静态 IP 地址、子网掩码和网关。输入 IPv4 地址，例如 <replaceable>192.168.1.1.</replaceable> 或 <replaceable>192.168.1.1/24</replaceable>。如果省略，将自动添加前缀。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>自动 + 手动</term>
+                    <listitem>
+                      <para>
+                        来自网络的 DHCP 配置以及静态地址和网关。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>IPv6 设置</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>自动</term>
+                    <listitem>
+                      <para>
+                        IP 地址和网关通过 DHCP 从网络分配。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>手动</term>
+                    <listitem>
+                      <para>
+                        静态 IP 地址、子网掩码和网关。输入 IPv6 地址，例如 <replaceable>2001:db8::1</replaceable> 或 <replaceable>2001:db8::1/64</replaceable>。如果省略，将自动添加前缀。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>自动 + 手动</term>
+                    <listitem>
+                      <para>
+                        来自网络的 DHCP 配置以及静态地址和网关。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>VLAN</term>
+        <listitem>
+          <variablelist>
+            <title>VLAN 设置</title>
+            <varlistentry>
+              <term>名称</term>
+              <listitem>
+                <para>
+                  连接名称。有意义的名称可以包含目标（<replaceable>Internet</replaceable>）、连接类型（<replaceable>VLAN</replaceable>）或设备（<replaceable>eth0</replaceable>，如果启用了设备绑定）。自由文本，但建议避免使用特殊字符。
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>设备绑定</term>
+              <listitem>
+                <para>
+                  其中一个选项是<guilabel>无</guilabel>
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>IPv4 设置</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>自动</term>
+                    <listitem>
+                      <para>
+                        IP 地址和网关通过 DHCP 从网络分配。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>手动</term>
+                    <listitem>
+                      <para>
+                        静态 IP 地址、子网掩码和网关。输入 IPv4 地址，例如 <replaceable>192.168.1.1.</replaceable> 或 <replaceable>192.168.1.1/24</replaceable>。如果省略，将自动添加前缀。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>自动 + 手动</term>
+                    <listitem>
+                      <para>
+                        来自网络的 DHCP 配置以及静态地址和网关。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>IPv6 设置</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>自动</term>
+                    <listitem>
+                      <para>
+                        IP 地址和网关通过 DHCP 从网络分配。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>手动</term>
+                    <listitem>
+                      <para>
+                        静态 IP 地址、子网掩码和网关。输入 IPv6 地址，例如 <replaceable>2001:db8::1</replaceable> 或 <replaceable>2001:db8::1/64</replaceable>。如果省略，将自动添加前缀。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>自动 + 手动</term>
+                    <listitem>
+                      <para>
+                        来自网络的 DHCP 配置以及静态地址和网关。
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+</topic>

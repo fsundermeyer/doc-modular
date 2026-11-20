@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-system"
+ role="reference" xml:lang="ja"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>システムの構成</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+       <guilabel>システム</guilabel>画面で、ホスト名と時刻同期サーバーを設定します。
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-system">
+    <title>&agama; インストーラのシステム設定</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>システム設定ページを表示している &productname; &productnumber; 用 &agama; インストーラのスクリーンショット。ホスト名の設定や、ネットワークタイムプロトコル（NTP）時刻同期サーバーの調整を行うための設定を提供します。</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-system.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-system-sap.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-system.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-system-sap.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <section xml:id="reference-deployment-manual-system-hostname">
+    <title>ホスト名の設定</title>
+    <para>
+      以下のいずれかのモードでシステムのホスト名を設定します。
+    </para>
+    <variablelist>
+      <title>ホスト名設定モード</title>
+      <varlistentry>
+        <term>一時的（デフォルト）</term>
+        <listitem>
+          <para>
+          ホスト名はDHCPによって割り当てられ、再起動やネットワークの変更後に変わる可能性があります。一時的なホスト名 <literal>agama</literal> がインストールに使用されます。
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>スタティック</term>
+        <listitem>
+          <para>
+            静的なホスト名を設定します。完全修飾ドメイン名（FQDN）またはホスト名部分のみを使用できます。
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <important>
+      <title>登録用のホスト名</title>
+      <para>
+        ホスト名は &scc; への登録に使用されます。ホスト名を設定しない場合、システムは一時的なホスト名 <literal>agama</literal> で登録されます。システムに新しいホスト名が後から割り当てられても、&scc; 内で自動的に更新されることはありません。そのため、ホスト名を設定することを推奨します。
+      </para>
+      <para>
+        登録後に &scc; 内のホスト名を更新するには、まずシステムのホスト名を変更してください。次に <command>&suseconnect;</command> を使用してシステムの登録を解除し、新しいホスト名で再度登録してください。
+      </para>
+    </important>
+    <tip>
+      <title>&scc; 内のシステムを識別する</title>
+      <para>
+        &scc; に同じホスト名で複数のシステムが登録されている場合、それらを区別することは困難です。システムを識別するには、UUIDを使用します。UUIDは、&scc; の <guimenu>ハードウェア情報</guimenu> で確認できるほか、システム上で <command>dmidecode -s system-uuid</command> を実行して確認することもできます。
+      </para>
+    </tip>
+  </section>
+  <section xml:id="reference-deployment-manual-system-time">
+    <title>時刻同期サーバーの設定</title>
+    <para>
+      システム時刻が常に正確になるよう、ネットワークタイムプロトコル（NTP）を使用してシステム時刻を設定します。次のいずれかのモードを選択してください。
+    </para>
+    <variablelist>
+      <title>時刻同期モード</title>
+      <varlistentry>
+        <term>デフォルト</term>
+        <listitem>
+          <para>
+            システムは、デフォルトの &suse; NTPサーバー（<systemitem class="fqdomainname">1.suse.pool.ntp.org</systemitem>～<systemitem class="fqdomainname">3.suse.pool.ntp.org</systemitem>）のいずれかを使用します。システムがファイアウォールの内側にある場合は、ネットワークからこれらのサーバーにアクセスできることを確認してください。
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>カスタム</term>
+        <listitem>
+          <para>
+            カスタムモードでは、使用するNTPサーバーを設定できます。エアギャップ環境では、このオプションを使用します。サーバーをホスト名、IPアドレス、またはFQDNで指定します。複数のエントリはコロンで区切ります。
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <para>
+      ［<guimenu>確定</guimenu>］をクリックして、変更内容を保存します。
+    </para>
+  </section>
+</topic>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-registration"
+ role="reference" xml:lang="fr"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>Enregistrement du système</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+       Enregistrez le produit dans l'écran <guilabel>Enregistrement</guilabel>. 
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-registration">
+    <title>&agama; paramètres d'enregistrement de l'installateur</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>Capture d'écran de l'installateur &agama; pour &productname; &productnumber; montrant la page Enregistrement. Il comporte des champs de saisie pour sélectionner le serveur d'enregistrement, entrer un code d'enregistrement et fournir une adresse électronique facultative.</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-registration.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-registration.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-registration.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-registration.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <para>
+    Choisissez un serveur d'enregistrement et renseignez les informations suivantes :
+  </para>
+  <variablelist>
+    <title>Paramètres d'enregistrement</title>
+    <varlistentry>
+      <term>Serveur d'enregistrement</term>
+      <listitem>
+        <variablelist>
+          <varlistentry>
+            <term>&sccfull; </term>
+            <listitem>
+              <para>
+                Enregistrez-vous avec le &scc;. Si votre système est derrière une passerelle de périmètre de sécurité, assurez-vous que <link xlink:href="&sccurl;">&sccurl;</link> est accessible depuis votre réseau.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Personnalisé</term>
+            <listitem>
+              <para>
+                Enregistrez-vous avec votre propre infrastructure &smlm; ou &rmt; et fournissez l'<guilabel>URL du serveur</guilabel>. Utilisez cette option pour les environnements isolés physiquement.
+              </para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Code d'enregistrement</term>
+      <listitem>
+        <para>
+          Entrez un code d'enregistrement valide pour &productname;. Le code est masqué par défaut mais peut être affiché en cliquant sur l'icône en forme d'œil.
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Adresse électronique (facultative)</term>
+      <listitem>
+        <para>
+          Entrez éventuellement une adresse électronique valide. Pour les organisations, nous recommandons d'utiliser l'adresse associée au code d'enregistrement.
+        </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>
+    Cliquez sur <guimenu>Enregistrer</guimenu> pour enregistrer le système.
+  </para>
+  <!-- 
+  <note>
+    <title>Optional registration for images signed with the developer's key</title>
+    <para>
+      Images signed with the developer's key may allow you to skip
+      registration before installation. If your product's image supports installation without
+      registration, you may see a pop-up similar to the following:
+    </para>
+    <informalfigure>
+      <mediaobject>
+        <textobject role="description"><phrase>Using images signed by developer's key</phrase>
+        </textobject>
+        <imageobject role="fo">
+          <imagedata fileref="agama-installation-sles-sap-no-reg-dev-key-sign.png" width="100%"/>
+        </imageobject>
+        <imageobject role="html">
+          <imagedata fileref="agama-installation-sles-sap-no-reg-dev-key-sign.png" width="100%"/>
+        </imageobject>
+      </mediaobject>
+    </informalfigure>
+    <para>
+      To install without registration, select <guimenu>Trust</guimenu> on the pop-up.
+    </para>
+  </note>
+  -->
+  <section xml:id="reference-deployment-manual-registration-extensions">
+    <title>Enregistrement des extensions</title>
+    <para>
+      Une fois le système de base enregistré avec succès, vous pouvez enregistrer des extensions supplémentaires. Les extensions suivantes sont disponibles pour &productname;&nbsp;&productnumber; :
+    </para>
+    <variablelist>
+      <title>Extensions pour la famille &productname; &productnumber;</title>
+      <varlistentry os="sles;sles4nvidia">
+        <term>&sleha; Extension &productnumber;</term>
+        <listitem>
+          <para>
+            L'extension &sleha; fournit des technologies Open Source matures de mise en grappe à haute disponibilité, parmi les meilleures du secteur, faciles à configurer et à utiliser. Vous pouvez la déployer dans des environnements physiques, des environnements virtuels ou les deux. Elle regroupe des serveurs physiques, des serveurs virtuels ou toute combinaison des deux pour répondre aux besoins de votre entreprise.
+          </para>
+          <para>
+            Pour enregistrer votre extension &sleha;, saisissez son code d'enregistrement et cliquez sur <guilabel>Enregistrer</guilabel>.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>&ph; &productnumber;</term>
+        <listitem>
+          <para>
+            &ph; est un module gratuit fournissant un accès à des paquets maintenus par la communauté et compilés pour s'exécuter sur &productname;. Compilés à partir des mêmes sources que celles utilisées dans les distributions &osuse;, ces paquets de qualité fournissent des logiciels supplémentaires à ceux disponibles dans &productname;. Les paquets de ce module sont fournis sans support L3, mais n'affectent pas la prise en charge de &productname;.
+          </para>
+          <para>
+            Pour vous enregistrer auprès de &ph;, cliquez sur <guimenu>Enregistrer</guimenu>. Lorsque le programme d'installation vous demande si vous souhaitez approuver la clé de signature du dépôt &ph;, cliquez sur <guimenu>Faire confiance</guimenu>.
+            </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+</topic>

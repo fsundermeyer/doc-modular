@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="task-deployment-manual-start-installation"
+ role="task" xml:lang="zh"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+    <title>开始安装</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+        在安装概览中查看配置。
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-start-installation">
+    <title>&agama; 安装程序：确认安装</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>&productname; &productnumber; 的 &agama; 安装程序截图，显示了确认开始安装的模态对话框。</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-confirm-installation.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-confirm-installation.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-confirm-installation.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-confirm-installation.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <para>
+    点击<guimenu>确认并安装</guimenu>以开始安装。
+  </para>    
+  <para>
+    等待系统安装过程完成。安装所需时间取决于系统性能、安装大小以及您的网络连接速度。
+  </para>
+  <tip>
+    <title>安装日志</title>
+    <para>
+    您可以使用窗口右上角的箭头菜单查看日志和系统消息。
+    </para>
+  </tip>
+</topic>

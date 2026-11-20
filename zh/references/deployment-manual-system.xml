@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-system"
+ role="reference" xml:lang="zh"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>配置系统</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+       在 <guilabel>系统</guilabel> 屏幕中，配置主机名和时间同步服务器。
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-system">
+    <title>&agama; 安装程序系统设置</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>显示 &productname; &productnumber; 的 &agama; 安装程序系统设置页面的屏幕截图。它提供了用于配置主机名和调整网络时间协议（NTP）时间同步服务器的设置。</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-system.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-system-sap.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-system.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-system-sap.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <section xml:id="reference-deployment-manual-system-hostname">
+    <title>设置主机名</title>
+    <para>
+      使用以下模式之一设置系统的主机名。
+    </para>
+    <variablelist>
+      <title>主机名设置模式</title>
+      <varlistentry>
+        <term>临时（默认）</term>
+        <listitem>
+          <para>
+          主机名通过 DHCP 分配，可能会在重启或网络更改后发生变化。临时主机名 <literal>agama</literal> 用于安装。
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>静态</term>
+        <listitem>
+          <para>
+            设置静态主机名。您可以使用完全限定的域名（FQDN），也可以仅使用主机名部分。
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <important>
+      <title>用于注册的主机名</title>
+      <para>
+        该主机名用于向 &scc; 注册。如果您不设置主机名，您的系统将使用临时主机名 <literal>agama</literal> 进行注册。即使系统稍后被分配了新的主机名，该主机名也不会在 &scc; 中自动更新。因此建议设置主机名。
+      </para>
+      <para>
+        要在注册后更新 &scc; 中的主机名，请先更改系统的主机名。然后使用 <command>&suseconnect;</command> 注销系统，并以新的主机名重新注册。
+      </para>
+    </important>
+    <tip>
+      <title>在 &scc; 中识别系统</title>
+      <para>
+        如果您在 &scc; 中注册了多个具有相同主机名的系统，则很难区分它们。要识别系统，请使用其 UUID。您可以在 &scc; 的 <guimenu>硬件信息</guimenu> 下找到它，也可以通过在系统上运行 <command>dmidecode -s system-uuid</command> 来找到它。
+      </para>
+    </tip>
+  </section>
+  <section xml:id="reference-deployment-manual-system-time">
+    <title>设置时间同步服务器</title>
+    <para>
+      系统时间通过网络时间协议（NTP）进行设置，以确保系统时间始终准确。选择下列模式之一：
+    </para>
+    <variablelist>
+      <title>时间同步模式</title>
+      <varlistentry>
+        <term>默认</term>
+        <listitem>
+          <para>
+            系统使用默认的 &suse; NTP 服务器之一，服务器范围为 <systemitem class="fqdomainname">1.suse.pool.ntp.org</systemitem> 至 <systemitem class="fqdomainname">3.suse.pool.ntp.org</systemitem>。如果您的系统位于防火墙后，请确保您的网络可以访问这些服务器。
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>自定义</term>
+        <listitem>
+          <para>
+            在自定义模式下，您可以配置要使用的 NTP 服务器。在隔离环境中请使用此选项。通过主机名、IP 地址或 FQDN 指定服务器。用冒号隔开多个条目。
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <para>
+      单击 <guimenu>接受</guimenu> 保存您的更改。
+    </para>
+  </section>
+</topic>

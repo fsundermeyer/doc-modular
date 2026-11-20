@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-registration"
+ role="reference" xml:lang="pt"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>Registrando o sistema</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+       Registre o produto na tela <guilabel>Registro</guilabel>. 
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-registration">
+    <title>&agama; configurações de registro do instalador</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>Captura de tela do instalador &agama; para &productname; &productnumber; mostrando a página de registro. Ele possui campos de entrada para selecionar o servidor de registro, inserir um código de registro e fornecer um endereço de e-mail opcional.</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-registration.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-registration.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-registration.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-registration.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <para>
+    Escolha um servidor de registro e insira os detalhes:
+  </para>
+  <variablelist>
+    <title>Configurações de registro</title>
+    <varlistentry>
+      <term>Servidor de registro</term>
+      <listitem>
+        <variablelist>
+          <varlistentry>
+            <term>&sccfull; </term>
+            <listitem>
+              <para>
+                Registre-se com o &scc;. Se o seu sistema estiver atrás de um gateway de segurança, certifique-se de que <link xlink:href="&sccurl;">&sccurl;</link> esteja acessível a partir da sua rede.
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Personalizado</term>
+            <listitem>
+              <para>
+                Registre-se com sua própria infraestrutura &smlm; ou &rmt; e forneça a <guilabel>URL do servidor</guilabel>. Use esta opção para ambientes air-gapped.
+              </para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Código de registro</term>
+      <listitem>
+        <para>
+          Insira um código de registro válido para &productname;. O código é ocultado por padrão, mas pode ser exibido clicando no ícone de olho.
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>E-mail (opcional)</term>
+      <listitem>
+        <para>
+          Opcionalmente, insira um endereço de e-mail válido. Para organizações, recomendamos usar o endereço atribuído ao código de registro.
+        </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>
+    Clique em <guimenu>Registrar</guimenu> para registrar o sistema.
+  </para>
+  <!-- 
+  <note>
+    <title>Optional registration for images signed with the developer's key</title>
+    <para>
+      Images signed with the developer's key may allow you to skip
+      registration before installation. If your product's image supports installation without
+      registration, you may see a pop-up similar to the following:
+    </para>
+    <informalfigure>
+      <mediaobject>
+        <textobject role="description"><phrase>Using images signed by developer's key</phrase>
+        </textobject>
+        <imageobject role="fo">
+          <imagedata fileref="agama-installation-sles-sap-no-reg-dev-key-sign.png" width="100%"/>
+        </imageobject>
+        <imageobject role="html">
+          <imagedata fileref="agama-installation-sles-sap-no-reg-dev-key-sign.png" width="100%"/>
+        </imageobject>
+      </mediaobject>
+    </informalfigure>
+    <para>
+      To install without registration, select <guimenu>Trust</guimenu> on the pop-up.
+    </para>
+  </note>
+  -->
+  <section xml:id="reference-deployment-manual-registration-extensions">
+    <title>Registrando extensões</title>
+    <para>
+      Após registrar com sucesso o sistema base, você pode registrar extensões adicionais. As seguintes extensões estão disponíveis para &productname;&nbsp;&productnumber;:
+    </para>
+    <variablelist>
+      <title>Extensões para a família &productname; &productnumber;</title>
+      <varlistentry os="sles;sles4nvidia">
+        <term>&sleha; Extensão &productnumber;</term>
+        <listitem>
+          <para>
+            A extensão &sleha; fornece tecnologias de cluster de alta disponibilidade de código aberto maduras e líderes do setor que são fáceis de configurar e usar. Você pode implantá-la em ambientes físicos, ambientes virtuais ou ambos. Ela agrupa servidores físicos, servidores virtuais ou qualquer combinação dos dois para atender às necessidades da sua empresa.
+          </para>
+          <para>
+            Para registrar sua extensão &sleha;, insira seu código de registro e clique em <guilabel>Registrar</guilabel>.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>&ph; &productnumber;</term>
+        <listitem>
+          <para>
+            &ph; é um módulo gratuito que fornece acesso a pacotes mantidos pela comunidade criados para rodar no &productname;. Criados a partir das mesmas fontes usadas nas distribuições &osuse;, esses pacotes de qualidade fornecem software adicional ao que é encontrado no &productname;. Os pacotes neste módulo são entregues sem suporte L3, mas não interferem na capacidade de suporte do &productname;.
+          </para>
+          <para>
+            Para se registrar no &ph;, clique em <guimenu>Registrar</guimenu>. Quando o instalador perguntar se deseja confiar na chave de assinatura do repositório &ph;, clique em <guimenu>Confiar</guimenu>.
+            </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+</topic>

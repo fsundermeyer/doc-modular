@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<topic xml:id="agama-installation-more-info"
+ role="glue" xml:lang="fr"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+    <title>informations supplémentaires</title>
+    <!-- can be changed via merge in the
+      assembly -->
+    <!--add author's e-mail address-->
+    <meta name="souvik.sarkar@suse.com" content="" its:translate="no"/>
+    <!-- add an abstract/para here, if you need one -->
+    <!-- can be changed via merge in the assembly -->
+  </info>
+  <para>
+    Pour plus d'informations sur des rubriques connexes, reportez-vous aux ressources suivantes :
+  </para>
+  <itemizedlist>
+    <listitem>
+      <para>
+        Documentation du projet &agama;Open Source  : <link xlink:href="https://agama-project.github.io/docs/user"></link>
+      </para>
+    </listitem>
+    <listitem arch="zseries">
+      <para>
+        &ibm; documentation pour les &suse;distributions  https://www.ibm.com/docs/en/linux-on-systems?topic=distributions-suse-linux-enterprise-server
+      </para>
+    </listitem>
+    <listitem arch="power">
+      <para>
+        &ibm; guides de démarrage rapide pour l'installation de Linux sur &power; : <link xlink:href="https://www.ibm.com/docs/en/linux-on-systems?topic=servers-quick-start-guides-installing-linux"></link>.
+      </para>
+    </listitem>
+    <listitem arch="power">
+      <para>
+        &ibm; instructions pour l'installation de Linux sur une partition logique PowerVM (LPAR) à l'aide d'un DVD virtuel (vDVD) : <link xlink:href="https://www.ibm.com/docs/en/linux-on-systems?topic=aim-installing-linux-powervm-lpar-by-using-virtual-dvd-vdvd"></link>.
+        </para>
+    </listitem>
+  </itemizedlist>
+</topic>

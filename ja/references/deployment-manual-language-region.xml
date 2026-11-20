@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-language-region"
+ role="reference" xml:lang="ja"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>言語および地域の設定</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+        <guilabel>言語および地域</guilabel>画面で、言語、キーボードレイアウト、タイムゾーンなどのローカライズ設定を調整します。
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-language-region">
+    <title>&agama; インストーラーのローカライズ設定</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase> &productname; &productnumber; 用の &agama; インストーラーのスクリーンショット。言語および地域の設定ページが表示されています。表示言語、キーボードレイアウト、タイムゾーンを選択するためのドロップダウンメニューが用意されています。 </phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-localization.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-localization.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-localization.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-localization.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <variablelist>
+    <title>言語および地域の設定</title>
+    <varlistentry>
+      <term>言語</term>
+      <listitem>
+        <para>
+          システムで使用する言語。インストール中に使用された言語とは異なる場合があります。デフォルト値: <literal>English (United States)</literal>。
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>キーボード</term>
+      <listitem>
+        <para>
+          システムで使用するキーボード。インストール中に使用されたキーボードとは異なる場合があります。デフォルト値: <literal>English (US)</literal>。
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>タイムゾーン</term>
+      <listitem>
+        <para>
+          システムのタイムゾーン。デフォルト値は、ネットワークの場所に基づいて自動的に決定されます。
+        </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>
+    <guimenu>確定</guimenu>をクリックして、変更内容を保存します。
+  </para>
+</topic>

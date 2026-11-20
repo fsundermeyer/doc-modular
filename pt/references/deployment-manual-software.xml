@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-software"
+ role="reference" xml:lang="pt"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>Selecionando software</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para os="sles;sles4nvidia">
+        Adicione software adicional para instalar, como o hipervisor &kvm; ou o serviço de gerenciamento de sistema &cockpit;.
+      </para>
+      <para os="sles4sap">
+        Selecione os padrões de software &sap; necessários para o seu ambiente. Você também pode adicionar software adicional para instalar, como o hipervisor &kvm; ou o serviço de gerenciamento de sistema &cockpit;.
+      </para>
+    </abstract>
+  </info>
+  <para>
+  </para>
+  <figure xml:id="fig-deployment-manual-software">
+    <title>Seleção de software do instalador &agama;</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>Captura de tela do instalador &agama; para &productname; &productnumber; mostrando a página de seleção de software. Ela apresenta painéis para selecionar um ambiente de área de trabalho e padrões de pacotes de software adicionais, juntamente com o espaço em disco necessário para a seleção.</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-software.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-software.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-software.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-software.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <note>
+    <title>Confie na chave GPG do repositório Package Hub</title>
+    <para>
+    Se você selecionar o complemento Package Hub e vir um pop-up, confie na chave GPG desse repositório.
+    </para>
+  </note>
+  <section xml:id="reference-deployment-manual-software-desktop">
+    <title>Selecionando uma área de trabalho</title>
+    <para>
+      Selecione um ambiente de área de trabalho para obter uma interface gráfica. O &productname; é fornecido com a área de trabalho &gnome;. <!-- You can install other desktop environments like KDE or Xfce, if you enable
+      the &ph; (see <xref linkend="reference-deployment-manual-registration-extensions"/>). -->
+    </para>
+  </section>
+  <section xml:id="reference-deployment-manual-software-patterns">
+    <title>Selecionando padrões de software adicionais</title>
+    <para>
+      Padrões são conjuntos selecionados de pacotes para casos de uso comuns e recursos para estender o sistema. <phrase os="sles;sles4nvidia">A instalação padrão inclui <literal>Kernel dump tooling</literal> e <literal>&selnx; support</literal>.</phrase><phrase os="sles4sap">A instalação padrão inclui <literal>&selnx; support</literal>.</phrase> Para remover ou instalar padrões adicionais, clique em <guimenu>Alterar padrões</guimenu>.
+    </para>
+  </section>
+  <section os="sles4sap" xml:id="reference-deployment-manual-sap-software">
+    <title>Selecionando padrões &sap;</title>
+    <para>
+      Após clicar em <guimenu>Alterar padrões</guimenu> na página de seleção de software, você pode selecionar os padrões &sap; necessários para sua instalação. Eles estão localizados na seção <guimenu><emphasis role="bold">Suporte SAP</emphasis></guimenu>.
+    </para>
+    <figure xml:id="fig-deployment-manual-sap-software">
+    <title>Seleção de software do instalador &agama; &sap;</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>Captura de tela do instalador &agama; para &productname; &productnumber; mostrando a guia de seleção de software de Suporte &sap;. Ela apresenta diferentes padrões selecionáveis, incluindo alguns para &hana;, &netweaver; e &s4h;. </phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata fileref="agama-installation-sap-support-software.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata fileref="agama-installation-sap-support-software.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  </section>
+</topic>

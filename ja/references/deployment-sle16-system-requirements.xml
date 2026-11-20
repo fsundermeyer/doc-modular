@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-sle16-system-requirements"
+ role="reference" xml:lang="ja"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>システム要件</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+        &productname;のインストールには、以下の最小リソースが必要です。このセクションでは、特定の用途に対する推奨事項も記載しています。
+      </para>
+    </abstract>
+  </info>
+  <variablelist>
+    <title>インストール最小構成環境</title>
+    <varlistentry>
+      <term>CPU</term>
+      <listitem>
+        <para arch="arm">
+          Armv8.0-A以上
+        </para>
+        <para arch="power">
+          POWER10以上
+        </para>
+        <para arch="x86_64">
+           &amd64;または&intel64;、マイクロアーキテクチャレベルx86-64-v2以上
+        </para>
+        <para arch="zseries">
+          z14以上
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>メモリ</term>
+      <listitem>
+        <para arch="arm;x86_64;zseries">
+          1024 MiBのRAM
+        </para>
+        <para arch="power">
+          2048 MiB RAM
+        </para>
+        <para arch="arm;x86_64;zseries">
+          512 MiBのスワップを推奨
+        </para>
+        <para arch="power">
+          1024 MiBのスワップを推奨
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>ハードディスク</term>
+      <listitem>
+        <para>
+          2 GiBの利用可能なディスク容量（より多くの容量を推奨、すべてのパターンで8.5 GiB）。OSのスナップショット/ロールバック用に32 GiB。
+        </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <itemizedlist>
+    <title>特定用途での推奨事項</title>
+    <listitem>
+      <para>
+        1 GiB～8 GiBのRAM、CPUあたり少なくとも512 MiB
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        8 GiBのハードディスク容量、OSのスナップショット/ロールバック用に32 GiB
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        プリントサーバ：サーバベースの印刷のパフォーマンスを向上させる場合は、より高速なプロセッサまたは追加のプロセッサ
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Webサーバ：キャッシュ性能を向上させる場合は追加のRAM、Webアプリケーションのパフォーマンスを向上させる場合は追加のプロセッサ
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        データベースサーバ：キャッシュ性能を向上させるための追加のRAMと、並列I/Oのための複数のディスク
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        ファイルサーバ：I/Oスループットを向上させる場合は、追加のメモリとディスク、またはRAIDシステム
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        SAPアプリケーション：SAPが推奨する追加のメモリとディスク
+      </para>
+    </listitem>
+  </itemizedlist>
+</topic>

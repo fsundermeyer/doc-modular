@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-product-selection"
+ role="reference" xml:lang="zh"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>选择产品和安装模式</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+       在此步骤中，您选择产品及其安装模式。
+      </para>
+    </abstract>
+  </info>
+  <figure os="sles;sles4sap" xml:id="fig-deployment-manual-product-selection">
+    <title>&agama; 安装程序中的产品选择</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>&agama; 安装程序的产品选择界面截图。它允许以标准或不可变模式安装 &slsa; 和 &sles4sapa;。</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata fileref="agama-installation-sles-select-product.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata fileref="agama-installation-sles-select-product.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <para os="sles;sles4sap">
+    选择 &productname; &productnumber; 进行安装并选择其安装模式：
+  </para>
+  <variablelist>
+    <title>安装模式</title>
+    <varlistentry>
+      <term><guilabel>标准</guilabel></term>
+      <listitem>
+        <para>
+          文件系统是可写的。此模式提供最大的灵活性。
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><guilabel>不可变</guilabel></term>
+      <listitem>
+        <para>
+          根文件系统是写保护的。更新以原子方式应用于新快照。重启后，该快照将生效。
+        </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>
+    阅读并接受许可协议以继续。
+  </para>
+  <tip>
+    <title>其他安装程序功能</title>
+    <para>
+      在安装程序的右上角，有一个工具栏，其中包含用于访问其他安装程序功能的图标：
+    </para>
+    <variablelist>
+      <title>图标（从左到右）</title>
+      <varlistentry>
+        <term>“状态”图标</term>
+        <listitem>
+          <para>
+            显示安装程序的状态。<literal>Idle</literal> 表示安装程序正在等待输入。
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>语言和键盘图标</term>
+        <listitem>
+          <para>
+            允许更改安装程序的语言和键盘布局。这仅影响安装程序界面，而不影响要安装的产品。您稍后可以在 <xref linkend="reference-deployment-manual-language-region"/> 中调整产品的本地化设置。
+          </para>
+          <!--
+          <para>
+            The keyboard layout can only be changed on local installations. If you are using a Web
+            browser for a remote installation, configure the preferred content language in the
+            browser settings and reload the installer.
+          </para>
+          -->
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>外观图标</term>
+        <listitem>
+          <para>
+            允许更改安装程序的配色方案和对比度。
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>更多信息</term>
+        <listitem>
+          <para>
+            允许下载 JSON 格式的配置和安装日志。
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    
+  </tip>
+</topic>

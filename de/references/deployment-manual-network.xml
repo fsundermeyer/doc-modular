@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-network"
+ role="reference" xml:lang="de"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>Konfigurieren des Netzwerks</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+       Verwalten Sie Netzwerkverbindungen im Bildschirm <guilabel>Netzwerk</guilabel>.
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-network">
+    <title>&agama; Netzwerkeinstellungen des Installationsprogramms</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>Screenshot des &agama;-Installationsprogramms für &productname; &productnumber;, das die Netzwerkkonfigurationsseite zeigt. Es listet aktive Netzwerkschnittstellen, IP-Adressen und Optionen zum Hinzufügen neuer kabelgebundener oder WLAN-Verbindungen auf. </phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-network.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-network.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-network.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-network.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <para>
+    Die Übersicht zeigt die konfigurierten Netzwerkverbindungen in einer Tabelle. Klicken Sie auf die Kopfzeilen, um die Verbindungen nach Name, Typ, Status, Gerät oder IP-Adresse zu sortieren. Sie können auch nach Name (mit Platzhaltern), Typ und Status filtern.
+  </para>
+  <para>
+  </para>
+  <section xml:id="reference-deployment-manual-network-edit">
+    <title>Bearbeiten einer Verbindung</title>
+    <para>
+      Standardmäßig konfiguriert &agama; eine Verbindung mit DHCP. Um eine Verbindung zu bearbeiten, klicken Sie auf die drei Punkte am Ende der Zeile. Folgende Optionen sind verfügbar:
+    </para>
+    <variablelist>
+      <varlistentry>
+        <term>Details</term>
+        <listitem>
+          <para>Zeigt die Verbindungsdetails an, sowohl den aktuellen Status als auch die Konfiguration.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Verbindung bearbeiten</term>
+        <listitem>
+          <para>
+            Bearbeitet die Verbindung. Detaillierte Informationen finden Sie in <xref linkend="reference-deployment-manual-network-add"/>.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Trennen</term>
+        <listitem>
+          <para>
+            Trennt die Verbindung vorübergehend.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Löschen</term>
+        <listitem>
+          <para>
+            Löscht die Verbindung und gibt das Gerät für eine andere Verbindung frei.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+  <section xml:id="reference-deployment-manual-network-add" >
+    <title>Neue Verbindung hinzufügen</title>
+    <para>
+      Klicken Sie auf <guimenu>Verbindung hinzufügen</guimenu>, um eine neue Netzwerkverbindung zu konfigurieren. Die folgenden Typen werden unterstützt:
+    </para>
+    <variablelist role="tabs">
+      <varlistentry>
+        <term>Ethernet</term>
+        <listitem>
+          <variablelist>
+            <title>Ethernet-Einstellungen</title>
+            <varlistentry>
+              <term>Name</term>
+              <listitem>
+                <para>
+                  Name der Verbindung. Aussagekräftige Namen können das Ziel (<replaceable>Internet</replaceable>), den Verbindungstyp (<replaceable>Ethernet</replaceable>) oder das Gerät (<replaceable>eth0</replaceable>, falls die Gerätebindung aktiviert ist) enthalten. Freier Text; es wird jedoch empfohlen, Sonderzeichen zu vermeiden.
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Gerätebindung</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>Keine</term>
+                    <listitem>
+                      <para>
+                        Die Verbindung ist für alle Geräte verfügbar. Nach einem Neustart oder einer Standortänderung des Systems kann sich das Gerät ändern.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Nach Name ausgewählt</term>
+                    <listitem>
+                      <para>
+                        Die Verbindung wird im System über ihren Namen identifiziert.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Nach MAC ausgewählt</term>
+                    <listitem>
+                      <para>
+                        Die Verbindung wird über ihre physische Adresse identifiziert.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+                <para>
+                  Eine der Optionen: <guilabel>Keine</guilabel>
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>IPv4-Einstellungen</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>Automatisch</term>
+                    <listitem>
+                      <para>
+                        IP-Adresse und Gateway werden vom Netzwerk per DHCP zugewiesen.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Manuell</term>
+                    <listitem>
+                      <para>
+                        Statische IP-Adresse, Netzmaske und Gateway. Geben Sie eine IPv4-Adresse wie <replaceable>192.168.1.1.</replaceable> oder <replaceable>192.168.1.1/24</replaceable> ein. Das Präfix wird automatisch hinzugefügt, falls es weggelassen wird.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Automatisch + Manuell</term>
+                    <listitem>
+                      <para>
+                        DHCP-Konfiguration vom Netzwerk sowie statische Adressen und Gateway.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>IPv6-Einstellungen</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>Automatisch</term>
+                    <listitem>
+                      <para>
+                        IP-Adresse und Gateway werden vom Netzwerk per DHCP zugewiesen.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Manuell</term>
+                    <listitem>
+                      <para>
+                        Statische IP-Adresse, Netzmaske und Gateway. Geben Sie eine IPv6-Adresse wie <replaceable>2001:db8::1</replaceable> oder <replaceable>2001:db8::1/64</replaceable> ein. Das Präfix wird automatisch hinzugefügt, falls es weggelassen wird.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Automatisch + Manuell</term>
+                    <listitem>
+                      <para>
+                        DHCP-Konfiguration vom Netzwerk sowie statische Adressen und Gateway.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Benutzerdefinierte DNS-Server verwenden</term>
+              <listitem>
+                <para>
+                  Aktivieren Sie die Option und geben Sie die Adressen der DNS-Server an.
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Benutzerdefinierte DNS-Suchdomänen verwenden</term>
+              <listitem>
+                <para>
+                  Aktivieren Sie die Option und geben Sie eine DNS-Suchdomäne wie <replaceable>&exampledomain;</replaceable> an.
+                </para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Bonding</term>
+        <listitem>
+          <variablelist>
+            <title>Bonding-Einstellungen</title>
+            <varlistentry>
+              <term>Name</term>
+              <listitem>
+                <para>
+                  Name der Verbindung. Aussagekräftige Namen können das Ziel (<replaceable>Internet</replaceable>), den Verbindungstyp (<replaceable>Bond</replaceable>) oder das Gerät (<replaceable>bond0</replaceable>, falls die Gerätebindung aktiviert ist) enthalten. Freitext; aus praktischen Gründen wird jedoch empfohlen, Sonderzeichen zu vermeiden.
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Gerätename</term>
+              <listitem>
+                <para>
+                  Geben Sie einen Gerätenamen an, wie z. B. <replaceable>bond0</replaceable>.
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Bonding-Modus</term>
+              <listitem>
+                <para>
+                  Wählen Sie den Bonding-Modus:
+                </para>
+                <variablelist>
+                  <varlistentry>
+                    <term>balance-rr</term>
+                    <listitem>
+                      <para>
+                        Die Pakete werden per Round-Robin von der ersten bis zur letzten verfügbaren Schnittstelle übertragen. Bietet Fehlertoleranz und Lastausgleich. Erfordert Switch-Unterstützung. Bei bestimmten Switches kann dieser Modus zu Fehlern führen.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>active-backup</term>
+                    <listitem>
+                      <para>
+                        Nur eine Netzwerkschnittstelle ist aktiv. Wenn diese Schnittstelle ausfällt, wird eine andere Schnittstelle aktiv. Bietet Fehlertoleranz. Eine spezielle Switch-Unterstützung ist nicht erforderlich.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>balance-xor</term>
+                    <listitem>
+                      <para>
+                        Der Datenverkehr wird auf alle verfügbaren Schnittstellen aufgeteilt, je nach der Anzahl der Schnittstellen im Bond-Gerät. Bietet Fehlertoleranz und Lastausgleich. Erfordert Switch-Unterstützung. Bei bestimmten Switches kann dieser Modus zu Fehlern führen.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>broadcast</term>
+                    <listitem>
+                      <para>
+                        Der gesamte Datenverkehr wird per Broadcast an alle Schnittstellen übertragen. Bietet Fehlertoleranz. Erfordert Switch-Unterstützung. Bei bestimmten Switches kann dieser Modus zu Fehlern führen.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>802.3ad</term>
+                    <listitem>
+                      <para>
+                        Auch als LACP bezeichnet. Alle Schnittstellen in der LACP-Gruppe müssen die gleichen Geschwindigkeits- und Duplexeinstellungen aufweisen und mit demselben Switch verbunden sein. Bietet Fehlertoleranz und Lastausgleich. Erfordert <command>ethtool</command>-Unterstützung durch die Schnittstellentreiber sowie einen Switch, der die dynamische Link-Aggregation nach IEEE 802.3ad unterstützt und entsprechend konfiguriert ist. Wenn Ihr Switch diesen Modus unterstützt, ist dies der bevorzugte Modus.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>balance-tlb</term>
+                    <listitem>
+                      <para>
+                        Adaptiver Übertragungslastausgleich. Bietet Fehlertoleranz und Lastausgleich. Erfordert <command>ethtool</command>-Unterstützung durch die Schnittstellentreiber. Eine spezielle Switch-Unterstützung ist nicht erforderlich, doch bei bestimmten Switches kann dieser Modus zu Fehlern führen.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>balance-alb</term>
+                    <listitem>
+                      <para>
+                        Adaptiver Lastausgleich. Bietet Fehlertoleranz und Lastausgleich. Erfordert <command>ethtool</command>-Unterstützung durch die Schnittstellentreiber. Eine spezielle Switch-Unterstützung ist nicht erforderlich, doch bei bestimmten Switches kann dieser Modus zu Fehlern führen.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>IPv4-Einstellungen</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>Automatisch</term>
+                    <listitem>
+                      <para>
+                        IP-Adresse und Gateway werden vom Netzwerk per DHCP zugewiesen.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Manuell</term>
+                    <listitem>
+                      <para>
+                        Statische IP-Adresse, Netzmaske und Gateway. Geben Sie eine IPv4-Adresse wie <replaceable>192.168.1.1.</replaceable> oder <replaceable>192.168.1.1/24</replaceable> ein. Das Präfix wird automatisch hinzugefügt, falls es weggelassen wird.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Automatisch + Manuell</term>
+                    <listitem>
+                      <para>
+                        DHCP-Konfiguration vom Netzwerk sowie statische Adressen und Gateway.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>IPv6-Einstellungen</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>Automatisch</term>
+                    <listitem>
+                      <para>
+                        IP-Adresse und Gateway werden vom Netzwerk per DHCP zugewiesen.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Manuell</term>
+                    <listitem>
+                      <para>
+                        Statische IP-Adresse, Netzmaske und Gateway. Geben Sie eine IPv6-Adresse wie <replaceable>2001:db8::1</replaceable> oder <replaceable>2001:db8::1/64</replaceable> ein. Das Präfix wird automatisch hinzugefügt, falls es weggelassen wird.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Automatisch + Manuell</term>
+                    <listitem>
+                      <para>
+                        DHCP-Konfiguration vom Netzwerk sowie statische Adressen und Gateway.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Bridge</term>
+        <listitem>
+          <variablelist>
+            <title>Bridge-Einstellungen</title>
+            <varlistentry>
+              <term>Name</term>
+              <listitem>
+                <para>
+                  Name der Verbindung. Aussagekräftige Namen können das Ziel (<replaceable>Internet</replaceable>), den Verbindungstyp (<replaceable>Bridge</replaceable>) oder das Gerät (<replaceable>br0</replaceable>, falls die Gerätebindung aktiviert ist) enthalten. Freier Text; es wird jedoch empfohlen, Sonderzeichen zu vermeiden.
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Gerätename</term>
+              <listitem>
+                <para>
+                  Name des Geräts, wie z. B. <replaceable>br0</replaceable>
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Spanning-Tree-Protokoll (STP)</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>Standard</term>
+                    <listitem>
+                      <para>
+                        (Aktiviert mit den Systemstandardeinstellungen)
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Benutzerdefiniert</term>
+                    <listitem>
+                      <para>
+                        Benutzerdefiniert (explizit aktiviert mit manuellen Einstellungen): Forward Delay (optional)
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Deaktiviert</term>
+                    <listitem>
+                      <para>
+                        (wird von dieser Bridge nicht verwendet)
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>IPv4-Einstellungen</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>Automatisch</term>
+                    <listitem>
+                      <para>
+                        IP-Adresse und Gateway werden vom Netzwerk per DHCP zugewiesen.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Manuell</term>
+                    <listitem>
+                      <para>
+                        Statische IP-Adresse, Netzmaske und Gateway. Geben Sie eine IPv4-Adresse wie <replaceable>192.168.1.1.</replaceable> oder <replaceable>192.168.1.1/24</replaceable> ein. Das Präfix wird automatisch hinzugefügt, falls es weggelassen wird.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Automatisch + Manuell</term>
+                    <listitem>
+                      <para>
+                        DHCP-Konfiguration vom Netzwerk sowie statische Adressen und Gateway.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>IPv6-Einstellungen</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>Automatisch</term>
+                    <listitem>
+                      <para>
+                        IP-Adresse und Gateway werden vom Netzwerk per DHCP zugewiesen.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Manuell</term>
+                    <listitem>
+                      <para>
+                        Statische IP-Adresse, Netzmaske und Gateway. Geben Sie eine IPv6-Adresse wie <replaceable>2001:db8::1</replaceable> oder <replaceable>2001:db8::1/64</replaceable> ein. Das Präfix wird automatisch hinzugefügt, falls es weggelassen wird.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Automatisch + Manuell</term>
+                    <listitem>
+                      <para>
+                        DHCP-Konfiguration vom Netzwerk sowie statische Adressen und Gateway.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>VLAN</term>
+        <listitem>
+          <variablelist>
+            <title>VLAN-Einstellungen</title>
+            <varlistentry>
+              <term>Name</term>
+              <listitem>
+                <para>
+                  Name der Verbindung. Aussagekräftige Namen können das Ziel (<replaceable>Internet</replaceable>), den Verbindungstyp (<replaceable>VLAN</replaceable>) oder das Gerät (<replaceable>eth0</replaceable>, falls die Gerätebindung aktiviert ist) enthalten. Freier Text; es wird jedoch empfohlen, Sonderzeichen zu vermeiden.
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Gerätebindung</term>
+              <listitem>
+                <para>
+                  Eine der Optionen: <guilabel>Keine</guilabel>
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>IPv4-Einstellungen</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>Automatisch</term>
+                    <listitem>
+                      <para>
+                        IP-Adresse und Gateway werden vom Netzwerk per DHCP zugewiesen.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Manuell</term>
+                    <listitem>
+                      <para>
+                        Statische IP-Adresse, Netzmaske und Gateway. Geben Sie eine IPv4-Adresse wie <replaceable>192.168.1.1.</replaceable> oder <replaceable>192.168.1.1/24</replaceable> ein. Das Präfix wird automatisch hinzugefügt, falls es weggelassen wird.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Automatisch + Manuell</term>
+                    <listitem>
+                      <para>
+                        DHCP-Konfiguration vom Netzwerk sowie statische Adressen und Gateway.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>IPv6-Einstellungen</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>Automatisch</term>
+                    <listitem>
+                      <para>
+                        IP-Adresse und Gateway werden vom Netzwerk per DHCP zugewiesen.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Manuell</term>
+                    <listitem>
+                      <para>
+                        Statische IP-Adresse, Netzmaske und Gateway. Geben Sie eine IPv6-Adresse wie <replaceable>2001:db8::1</replaceable> oder <replaceable>2001:db8::1/64</replaceable> ein. Das Präfix wird automatisch hinzugefügt, falls es weggelassen wird.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Automatisch + Manuell</term>
+                    <listitem>
+                      <para>
+                        DHCP-Konfiguration vom Netzwerk sowie statische Adressen und Gateway.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+</topic>

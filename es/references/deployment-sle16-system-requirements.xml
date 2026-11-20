@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-sle16-system-requirements"
+ role="reference" xml:lang="es"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>Requisitos del sistema</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+        La instalación necesita los siguientes recursos mínimos para &productname;. Esta sección también enumera recomendaciones para usos específicos. 
+      </para>
+    </abstract>
+  </info>
+  <variablelist>
+    <title>Requisitos mínimos para la instalación</title>
+    <varlistentry>
+      <term>CPU</term>
+      <listitem>
+        <para arch="arm">
+          Armv8.0-A o superior
+        </para>
+        <para arch="power">
+          POWER10 o superior
+        </para>
+        <para arch="x86_64">
+           &amd64; o &intel64;, nivel de microarquitectura x86-64-v2 o superior
+        </para>
+        <para arch="zseries">
+          z14 o superior
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Memoria</term>
+      <listitem>
+        <para arch="arm;x86_64;zseries">
+          1024 MiB RAM
+        </para>
+        <para arch="power">
+          2048 MiB de RAM
+        </para>
+        <para arch="arm;x86_64;zseries">
+          Se recomienda 512 MiB de espacio de intercambio (swap)
+        </para>
+        <para arch="power">
+          Se recomienda 1024 MiB de espacio de intercambio (swap)
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Disco duro</term>
+      <listitem>
+        <para>
+          2 GiB de espacio en disco disponible (se recomienda más, 8,5 GiB para todos los patrones) 32 GiB para instantáneas/reversión del SO
+        </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <itemizedlist>
+    <title>Recomendaciones para usos específicos</title>
+    <listitem>
+      <para>
+        De 1 GiB a 8 GiB de RAM, al menos 512 MiB por CPU
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        8 GiB de espacio en disco duro, 32 GiB para instantáneas/reversión del SO
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Para servidores de impresión: un procesador más rápido o procesadores adicionales para mejorar la impresión basada en servidor
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Para servidores Web: RAM adicional para mejorar el almacenamiento en caché y procesadores adicionales para mejorar el rendimiento de aplicaciones Web
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Para servidores de bases de datos: RAM adicional para mejorar el almacenamiento en caché y varios discos para E/S en paralelo
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Para servidores de archivos: memoria y discos adicionales, o una matriz redundante de discos independientes, para mejorar el rendimiento de E/S
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Para aplicaciones SAP: memoria y discos adicionales según lo recomendado por SAP
+      </para>
+    </listitem>
+  </itemizedlist>
+</topic>

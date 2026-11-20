@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-installation-overview"
+ role="reference" xml:lang="ja"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>インストール概要の確認</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+      インストール概要には、最も関連性の高い設定が表示されます。各カテゴリには、その設定の概要が表示されます。無効な設定があるカテゴリにはマークが付けられます。インストールを開始する前に、該当するカテゴリの設定を修正してください。
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-installation-overview">
+    <title>&agama; インストーラー設定の概要</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>初期インストール設定の概要を示す、&productname; &productnumber;用&agama;インストーラーのスクリーンショット。システム情報を要約し、続行する前に解決が必要な保留中または無効な設定にフラグを立てます。</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-overview.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-overview.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-overview.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-overview.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <para>
+    カテゴリを選択して、その設定を調整します。
+  </para>
+  <para>
+    設定の順序に決まりはありませんが、<guimenu>システム</guimenu>設定から開始し、続いて<guimenu>登録</guimenu>を行うことを推奨します。保留中または無効な設定があるカテゴリについては、インストールを進める前に設定の問題を解決する必要があります。
+  </para>
+</topic>

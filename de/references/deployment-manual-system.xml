@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-system"
+ role="reference" xml:lang="de"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>Konfigurieren des Systems</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+       Konfigurieren Sie im Bildschirm <guilabel>System</guilabel> den Hostnamen und die Zeitsynchronisierungsserver.
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-system">
+    <title>&agama; Systemeinstellungen des Installers</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>Screenshot des &agama;-Installers für &productname; &productnumber;, der die Seite mit den Systemeinstellungen zeigt. Es bietet Einstellungen zum Konfigurieren des Hostnamens und zum Anpassen der Network Time Protocol (NTP)-Zeitsynchronisierungsserver.</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-system.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-system-sap.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-system.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-system-sap.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <section xml:id="reference-deployment-manual-system-hostname">
+    <title>Festlegen des Hostnamens</title>
+    <para>
+      Legen Sie den Hostnamen des Systems in einem der folgenden Modi fest.
+    </para>
+    <variablelist>
+      <title>Modi zum Festlegen des Hostnamens</title>
+      <varlistentry>
+        <term>Transient (Standard)</term>
+        <listitem>
+          <para>
+          Der Hostname wird per DHCP zugewiesen und kann sich nach einem Neustart oder einer Netzwerkänderung ändern. Der transiente Hostname <literal>agama</literal> wird für die Installation verwendet.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Statisch</term>
+        <listitem>
+          <para>
+            Legen Sie einen statischen Hostnamen fest. Sie können entweder einen vollqualifizierten Domänennamen (FQDN) oder nur den Hostnamenteil verwenden.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <important>
+      <title>Hostname für die Registrierung</title>
+      <para>
+        Der Hostname wird für die Registrierung bei &scc; verwendet. Wenn Sie keinen Hostnamen festlegen, wird Ihr System mit dem transienten Hostnamen <literal>agama</literal> registriert. Selbst wenn dem System später ein neuer Hostname zugewiesen wird, wird dieser nicht automatisch in &scc; aktualisiert. Daher wird das Festlegen des Hostnamens empfohlen.
+      </para>
+      <para>
+        Um den Hostnamen in &scc; nach der Registrierung zu aktualisieren, ändern Sie zuerst den Hostnamen des Systems. Verwenden Sie dann <command>&suseconnect;</command>, um das System abzumelden und es unter dem neuen Hostnamen erneut zu registrieren.
+      </para>
+    </important>
+    <tip>
+      <title>Identifizieren von Systemen im &scc;</title>
+      <para>
+        Wenn Sie mehrere Systeme mit demselben Hostnamen im &scc; registriert haben, ist es schwierig, diese zu unterscheiden. Verwenden Sie zur Identifizierung eines Systems dessen UUID. Sie finden diese unter <guimenu>Hardwareinformationen</guimenu> im &scc; sowie auf dem System durch Ausführen von <command>dmidecode -s system-uuid</command>.
+      </para>
+    </tip>
+  </section>
+  <section xml:id="reference-deployment-manual-system-time">
+    <title>Einrichten von Zeitsynchronisierungsservern</title>
+    <para>
+      Die Systemzeit wird über das Network Time Protocol (NTP) eingestellt, um sicherzustellen, dass die Systemzeit immer korrekt ist. Wählen Sie einen der folgenden Modi aus:
+    </para>
+    <variablelist>
+      <title>Zeitsynchronisierungsmodi</title>
+      <varlistentry>
+        <term>Standard</term>
+        <listitem>
+          <para>
+            Das System verwendet einen der standardmäßigen &suse; NTP-Server <systemitem class="fqdomainname">1.suse.pool.ntp.org</systemitem> bis <systemitem class="fqdomainname">3.suse.pool.ntp.org</systemitem>. Wenn sich Ihr System hinter einer Firewall befindet, stellen Sie sicher, dass diese Server von Ihrem Netzwerk aus erreichbar sind.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Benutzerdefiniert</term>
+        <listitem>
+          <para>
+            Im benutzerdefinierten Modus können Sie die zu verwendenden NTP-Server konfigurieren. Verwenden Sie diese Option für Air-Gapped-Umgebungen. Geben Sie Server anhand ihres Hostnamens, ihrer IP-Adresse oder ihres FQDN an. Trennen Sie mehrere Einträge durch Doppelpunkte.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <para>
+      Klicken Sie auf <guimenu>Übernehmen</guimenu>, um Ihre Änderungen zu speichern.
+    </para>
+  </section>
+</topic>

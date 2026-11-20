@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-product-selection"
+ role="reference" xml:lang="fr"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>Sélection d'un produit et du mode d'installation</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+       À cette étape, vous sélectionnez le produit et son mode d'installation.
+      </para>
+    </abstract>
+  </info>
+  <figure os="sles;sles4sap" xml:id="fig-deployment-manual-product-selection">
+    <title>&agama; Sélection du produit dans le programme d'installation</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>Capture d'écran de l'installateur &agama; montrant la sélection du produit. Il permet d'installer &slsa; et &sles4sapa; en mode standard ou immuable.</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata fileref="agama-installation-sles-select-product.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata fileref="agama-installation-sles-select-product.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <para os="sles;sles4sap">
+    Sélectionnez &productname; &productnumber; pour l'installation et choisissez son mode d'installation :
+  </para>
+  <variablelist>
+    <title>Modes d'installation</title>
+    <varlistentry>
+      <term><guilabel>Standard</guilabel></term>
+      <listitem>
+        <para>
+          Le système de fichiers est accessible en écriture. Ce mode offre une flexibilité maximale.
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><guilabel>Immuable</guilabel></term>
+      <listitem>
+        <para>
+          Le système de fichiers racine est protégé contre l'écriture. Les mises à jour sont appliquées de manière atomique sur un nouvel instantané. L'instantané devient actif après un redémarrage.
+        </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>
+    Lisez et acceptez la licence pour continuer.
+  </para>
+  <tip>
+    <title>Fonctionnalités supplémentaires de l'installateur</title>
+    <para>
+      En haut à droite de l'installateur se trouve une barre d'outils avec des icônes permettant d'accéder à des fonctionnalités supplémentaires :
+    </para>
+    <variablelist>
+      <title>Icônes (de gauche à droite)</title>
+      <varlistentry>
+        <term>Icône État</term>
+        <listitem>
+          <para>
+            Affiche l'état de l'installateur. <literal>Idle</literal> signifie que l'installateur est en attente d'une saisie.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Icônes de langue et de clavier</term>
+        <listitem>
+          <para>
+            Permet de modifier la langue et la disposition du clavier de l'installateur. Cela affecte uniquement l'interface du programme d'installation, pas le produit à installer. Vous pouvez ajuster la localisation du produit plus tard dans <xref linkend="reference-deployment-manual-language-region"/>.
+          </para>
+          <!--
+          <para>
+            The keyboard layout can only be changed on local installations. If you are using a Web
+            browser for a remote installation, configure the preferred content language in the
+            browser settings and reload the installer.
+          </para>
+          -->
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Icône d'apparence</term>
+        <listitem>
+          <para>
+            Permet de modifier le jeu de couleurs et le contraste du programme d'installation.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>En savoir plus</term>
+        <listitem>
+          <para>
+            Permet de télécharger la configuration au format JSON et les journaux d'installation.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    
+  </tip>
+</topic>

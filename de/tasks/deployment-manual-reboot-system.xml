@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="task-deployment-manual-reboot-system"
+ role="task" xml:lang="de"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+    <title>Neustart des Systems</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+        Klicken Sie nach Abschluss der Installation auf <guimenu>Neustart</guimenu>.
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-reboot-system">
+    <title>&agama; Neustart-Dialogfeld des Installers</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>Screenshot des &agama;-Installers für &productname; &productnumber; nach der Installation. Er enthält eine Bestätigungsmeldung und eine primäre <guimenu>Neustart</guimenu>-Schaltfläche, um das System mit dem neu installierten Betriebssystem neu zu starten.</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-complete-installation.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-complete-installation.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-complete-installation.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-complete-installation.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <para>
+    Sobald die Installation abgeschlossen ist, wählen Sie <guimenu>Neu starten</guimenu>.
+  </para>
+  <figure xml:id="fig-deployment-manual-boot-menu">
+    <title>Booten Sie den Computer neu</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>Screenshot des GRUB2-Bootmenüs. Er hebt den Standardeintrag zum Starten von &productname; hervor und zeigt außerdem Einträge für erweiterte Bootoptionen und den Start von einem schreibgeschützten Snapshot an.</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-x86-64-grub2-boot-menu-post-installation.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-x86-64-grub2-boot-menu-post-installation.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-x86-64-grub2-boot-menu-post-installation.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-x86-64-grub2-boot-menu-post-installation.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <para>
+    Starten Sie im &grub;-Bootmenü das neu installierte System.
+  </para>
+</topic>

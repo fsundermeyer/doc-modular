@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-storage"
+ role="reference" xml:lang="de"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>Konfigurieren des Speichers</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+        Wählen Sie im Bildschirm <guilabel>Speicher</guilabel> ein Speichergerät für die Installation aus.
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-storage">
+    <title>&agama;-Installer-Speicherkonfiguration</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>Screenshot des &agama;-Installationsprogramms für &productname; &productnumber;, der die Speicherkonfigurationsseite zeigt. Er zeigt die Zielinstallationslaufwerke, Einstellungen zur Festplattenverschlüsselung und ein detailliertes Partitionslayout an.</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" arch="aarch64;power;x86_64" fileref="agama-installation-sles-storage.png" width="100%"/>
+        <imagedata os="sles" arch="zseries" fileref="agama-installation-sles-storage-s390x.png" width="100%"/>
+        <imagedata os="sles4sap" arch="power;x86_64" fileref="agama-installation-sap-storage.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" arch="aarch64;power;x86_64" fileref="agama-installation-sles-storage.png" width="100%"/>
+        <imagedata os="sles" arch="zseries" fileref="agama-installation-sles-storage-s390x.png" width="100%"/>
+        <imagedata os="sles4sap" arch="power;x86_64" fileref="agama-installation-sap-storage.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <!-- cwickert 2025-04-4: Beware, the buttons are labeled differently on IBM Z -->
+  <para>
+    Derzeit werden Installationen auf einzelnen Datenträgern oder LVM unterstützt. Um den Datenträger zu wechseln oder LVM zu verwenden, klicken Sie im Abschnitt <guimenu>Installationsgeräte</guimenu> auf die Schaltfläche mit dem Gerätenamen <guimenu><phrase arch="zseries">Weitere Geräte</phrase><phrase arch="aarch64;power;x86_64">Weitere Optionen</phrase></guimenu>.
+  </para>
+  <para arch="zseries">
+    Um DASD-, &iscsi;- oder zFCP-Geräte verwenden zu können, müssen Sie diese zuerst konfigurieren. Klicken Sie auf <guimenu>Weitere Optionen</guimenu> und wählen Sie die gewünschte Technologie aus. Die Optionen für DASD und die zFCP sind nur dann verfügbar, wenn die entsprechenden Geräte angeschlossen sind.
+  </para>
+  <para arch="zseries">
+    Um einen DASD-Datenträger zu aktivieren, wählen Sie diesen aus der Liste aus und klicken Sie auf <menuchoice><guimenu>Eine Aktion ausführen</guimenu><guimenu>Aktivieren</guimenu></menuchoice>. Sobald der Datenträger aktiviert ist, können Sie ihn im vorherigen Bildschirm für die Installation auswählen.
+  </para>
+  <para arch="zseries">
+    Um einen zFCP-Datenträger zu aktivieren, wählen Sie diesen aus der Liste aus und aktivieren Sie ihn, indem Sie auf das Drei-Punkte-Menü klicken. Wenn der Aktivierungsstatus nicht korrekt angezeigt wird, drücken Sie <keycap>F5</keycap>, um die Installer-Oberfläche zu aktualisieren.
+  <!-- cwickert 2025-08-15: Workaround for https://bugzilla.suse.com/show_bug.cgi?id=1248105
+      Can be deleted when https://bugzilla.suse.com/show_bug.cgi?id=1247445 is closed.
+    --></para>
+  <para>
+    Um einen &iscsi;-Datenträger zu erkennen, wählen Sie den &iscsi;-Initiator aus und klicken Sie auf <guimenu>&iscsi;-Ziele erkennen</guimenu>.
+  </para>
+  <para>
+    Standardmäßig werden die Dateisysteme als neue Partitionen auf dem ausgewählten Gerät angelegt. Sie können dieses Verhalten in der Dropdownliste mit der Bezeichnung <guimenu>Alle Inhalte werden gelöscht</guimenu> in Abschnitt <guimenu>Installationsgeräte</guimenu> ändern. Die folgenden Speicherrichtlinien stehen zur Verfügung:
+  </para>
+  <variablelist>
+    <title>Speicherrichtlinien</title>
+    <varlistentry>
+      <term>Aktuellen Inhalt löschen</term>
+      <listitem>
+        <para>
+          Alle Partitionen werden entfernt und alle Daten auf den Datenträgern gehen verloren.
+        </para>
+        </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Vorhandene Partitionen verkleinern</term>
+      <listitem>
+        <para>
+          Die Daten bleiben erhalten, aber &agama; verkleinert die aktuellen Partitionen nach Bedarf.
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term>Verfügbaren Speicherplatz nutzen</term>
+      <listitem>
+        <para>
+          Die Daten bleiben erhalten. Es wird nur der Speicherplatz verwendet, der keiner Partition zugewiesen ist.
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Benutzerdefiniert</term>
+      <listitem>
+        <para>
+          Wählen Sie aus, was mit jeder Partition geschehen soll.
+        </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <important>
+    <title>RAID-Unterstützung</title>
+    <para>
+      Die aktuelle &agama;-Benutzeroberfläche bietet nicht alle Optionen, die von der Speicherkonfiguration von &agama; unterstützt werden. Komplexe Konfigurationen wie RAID können über &agama;-Profile angewendet werden. Weitere Informationen finden Sie im Artikel <link xlink:href="https://documentation.suse.com/sles/&productnumber;/html/SLES-x86-64-agama-automated-installation/index.html#agama-advanced-storage-configuration"><citetitle>Automatisierte Installation mit Agama</citetitle></link>.
+    </para>
+    <!-- https://bugzilla.suse.com/show_bug.cgi?id=1275457 -->
+    <para>
+      Wenn auf dem ausgewählten Speicher bereits eine RAID-Konfiguration vorhanden ist &mdash;aus einer früheren Installation oder durch ein &agama;-Profil erstellt&mdash;, können die RAID-Geräte für die Installation verwendet werden. In diesem Fall sehen Sie möglicherweise eine Meldung wie <literal>Use RAID 0 (60.00 GiB) to host LVM</literal> in der Benutzeroberfläche. Bitte beachten Sie, dass sich der Begriff <literal>RAID 0</literal> in diesem Zusammenhang auf das RAID-Gerät (<filename>/dev/md/0</filename>) bezieht, nicht auf den RAID-Level.
+    </para>
+  </important>
+  <para>
+    Um einzelne Partitionen zu bearbeiten, klappen Sie den Abschnitt <guimenu>Partitionen und Dateisysteme</guimenu> durch einen Klick auf <guimenu>></guimenu> auf. Optional können Sie Btrfs-Snapshots und Startoptionen konfigurieren sowie die vollständige Festplattenverschlüsselung (Full Disk Encryption, FDE) aktivieren.
+  </para>
+</topic>

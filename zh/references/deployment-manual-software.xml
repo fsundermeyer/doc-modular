@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-software"
+ role="reference" xml:lang="zh"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>选择软件</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para os="sles;sles4nvidia">
+        添加需额外安装的软件，如 &kvm; 超级管理程序或 &cockpit; 系统管理服务。
+      </para>
+      <para os="sles4sap">
+        选择您环境所需的 &sap; 软件模式。您还可以添加需额外安装的软件，如 &kvm; 超级管理程序或 &cockpit; 系统管理服务。
+      </para>
+    </abstract>
+  </info>
+  <para>
+  </para>
+  <figure xml:id="fig-deployment-manual-software">
+    <title>&agama; 安装程序软件选择</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase> &agama; 安装程序的屏幕截图，显示了 &productname; &productnumber; 的软件选择页面。它包含用于选择桌面环境和附加软件包模式的面板，以及所选内容所需的磁盘空间。</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-software.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-software.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-software.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-software.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <note>
+    <title>信任 Package Hub 储存库的 GPG 密钥</title>
+    <para>
+    如果您选择了 Package Hub 附加产品并看到弹出窗口，请信任该储存库的 GPG 密钥。
+    </para>
+  </note>
+  <section xml:id="reference-deployment-manual-software-desktop">
+    <title>选择桌面</title>
+    <para>
+      选择桌面环境以获取图形界面。&productname; 随附 &gnome; 桌面。<!-- You can install other desktop environments like KDE or Xfce, if you enable
+      the &ph; (see <xref linkend="reference-deployment-manual-registration-extensions"/>). -->
+    </para>
+  </section>
+  <section xml:id="reference-deployment-manual-software-patterns">
+    <title>选择其他软件模式</title>
+    <para>
+      软件模式是针对常见用例和功能精心挑选的软件包集合，用于扩展系统。<phrase os="sles;sles4nvidia">默认安装包含 <literal>Kernel dump tooling</literal> 和 <literal>&selnx; support</literal>。</phrase><phrase os="sles4sap">默认安装包含 <literal>&selnx; support</literal>。</phrase>要去除或安装其他软件模式，请点击 <guimenu>更改模式</guimenu>。
+    </para>
+  </section>
+  <section os="sles4sap" xml:id="reference-deployment-manual-sap-software">
+    <title>选择 &sap; 模式</title>
+    <para>
+      在软件选择页面点击 <guimenu>更改模式</guimenu> 后，您可以选择安装所需的 &sap; 模式。它们位于 <guimenu><emphasis role="bold">SAP 支持</emphasis></guimenu> 部分下。
+    </para>
+    <figure xml:id="fig-deployment-manual-sap-software">
+    <title>&agama; 安装程序 &sap; 软件选择</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase> &agama; 安装程序的屏幕截图，显示了 &productname; &productnumber; 的 &sap; 支持软件选择选项卡。它具有不同的可选模式，包括适用于 &hana;、&netweaver; 和 &s4h; 的模式。</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata fileref="agama-installation-sap-support-software.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata fileref="agama-installation-sap-support-software.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  </section>
+</topic>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-authentication"
+ role="reference" xml:lang="ja"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>認証の設定</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+        続行する前に、管理者アカウントを作成するか、&rootuser;ユーザの認証を設定してください。
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-authentication">
+    <title>&agama;インストーラの認証設定</title>
+    <mediaobject>
+      <textobject role="description">
+        認証設定ページを示す&productname; &productnumber;用&agama;インストーラの<phrase>スクリーンショット。管理者アカウントの設定やルートログイン方法の設定を行うオプションがあります。</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-authentication.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-authentication.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-authentication.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-authentication.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <para>
+    インストールを続行するには、管理者アカウントを作成するか、&rootuser;ユーザの認証を設定する必要があります。
+  </para>
+  <section xml:id="reference-deployment-manual-authentication-user">
+    <title>管理者アカウントの作成</title>
+    <para>
+      セキュリティを向上させるため、&productname;ではデフォルトで&rootuser;ログインが無効になっています。代わりに、管理者ユーザがメインのログインアカウントとして使用されます。この管理者は、&sudo;を使用して管理コマンドを実行できます。
+    </para>
+    <para>
+      管理者アカウントを作成するには、<guimenu>管理者ユーザを定義する</guimenu>チェックボックスをオンにして、必要なユーザの詳細を入力します。
+    </para>
+    <variablelist>
+      <title>管理者ユーザの設定</title>
+      <varlistentry>
+        <term>氏名</term>
+        <listitem>
+          <para>
+            管理者ユーザのフルネーム。
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>ユーザ名</term>
+        <listitem>
+          <para>
+            ユーザ名。小文字(a-z)、数字(0-9)、および以下の文字のみ使用してください。<literal>.</literal> (ドット)、<literal>-</literal> (ハイフン)、およぴ<literal>_</literal> (下線)。その他の特殊文字やアクセント付き文字は避けてください。
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>SSH公開鍵（任意）</term>
+        <listitem>
+          <para>
+            1つ以上のSSH公開鍵を貼り付けて、SSHによるパスワードなしのログインを有効にします。鍵を追加するには、<keycap function="enter"/>または<keycap function="tab"/>を押します。鍵を削除するには、<keycap function="backspace"/>または<keycap function="delete"/>を押します。鍵間を移動するには、<keycap function="up"/>と<keycap function="down"/>の矢印を使用します。
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <important>
+      <title>SSH &rootuser;アクセス不可</title>
+      <para>
+        &rootuser;のSSHアクセスはデフォルトで無効になっています。そのため、システムユーザを作成することを強くお勧めします。最初のシステムユーザには&sudo;特権が自動的に付与され、&cockpit;へのアクセスにも使用できます。
+      </para>
+    </important>
+  </section>
+  <section xml:id="reference-deployment-manual-authentication-root">
+    <title>&rootuser;ユーザの設定</title>
+    <para>
+      &rootuser;の認証方法を設定します。安全なパスワード、SSH公開鍵、またはその両方を使用できます。
+    </para>
+    <figure xml:id="fig-deployment-manual-authentication-root">
+      <title>&agama;インストーラ&rootuser;認証設定</title>
+      <mediaobject>
+        <textobject role="description">
+          &rootuser;ログイン設定ページを示す&productname; &productnumber;用&agama;インストーラの<phrase>スクリーンショット。パスワードの入力、確認、およびSSH公開鍵用の入力フィールドが用意されています。</phrase>
+        </textobject>
+        <imageobject role="fo">
+          <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-authentication-root.png" width="100%"/>
+          <imagedata os="sles4sap" fileref="agama-installation-sap-authentication-root.png" width="100%"/>
+        </imageobject>
+        <imageobject role="html">
+          <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-authentication-root.png" width="100%"/>
+          <imagedata os="sles4sap" fileref="agama-installation-sap-authentication-root.png" width="100%"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
+    <variablelist>
+      <title>ルートログイン方法</title>
+      <varlistentry>
+        <term>無効</term>
+        <listitem>
+          <para>
+            &rootuser;ログインは無効になっており、管理者はすべての管理タスクに&sudo;を使用します。
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>パスワード</term>
+        <listitem>
+          <para>
+            &rootuser;はパスワードを使用してログインできます。強力なパスワードを設定します。
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>SSH公開鍵</term>
+        <listitem>
+          <para>
+            &rootuser;はSSH公開鍵を使用してログインできます。1つ以上のSSH公開鍵を貼り付けます。鍵を追加するには、<keycap function="enter"/>または<keycap function="tab"/>を押します。鍵を削除するには、<keycap function="backspace"/>または<keycap function="delete"/>を押します。異なる鍵の間を移動するには、<keycap function="up"/>と<keycap function="down"/>の矢印を使用します。
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>パスワードおよびSSH公開鍵</term>
+        <listitem>
+          <para>
+            &rootuser;ユーザは、パスワードとSSH公開鍵の両方を使用してログインできます。上記の説明に従って両方を設定してください。
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+</topic>

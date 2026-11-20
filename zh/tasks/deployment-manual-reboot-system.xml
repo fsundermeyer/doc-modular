@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="task-deployment-manual-reboot-system"
+ role="task" xml:lang="zh"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+    <title>重启系统</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+        安装完成后，单击<guimenu>重启</guimenu>。
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-reboot-system">
+    <title>&agama; 安装程序重启对话框</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>安装完成后 &productname; &productnumber; 的 &agama; 安装程序截图。它包含一条确认消息和一个<guimenu>重启</guimenu>主按钮，用于重启系统并进入新安装的操作系统。</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-complete-installation.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-complete-installation.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-complete-installation.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-complete-installation.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <para>
+    安装完成后，选择<guimenu>重引导</guimenu>。
+  </para>
+  <figure xml:id="fig-deployment-manual-boot-menu">
+    <title>重引导</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase> GRUB2 引导菜单截图。它突出显示了用于启动 &productname; 的默认菜单项，以及高级引导选项和从只读快照启动的选项。</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-x86-64-grub2-boot-menu-post-installation.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-x86-64-grub2-boot-menu-post-installation.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-x86-64-grub2-boot-menu-post-installation.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-x86-64-grub2-boot-menu-post-installation.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <para>
+    在 &grub; 引导菜单中，启动新安装的系统。
+  </para>
+</topic>

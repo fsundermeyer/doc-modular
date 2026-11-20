@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-storage"
+ role="reference" xml:lang="ja"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>ストレージの設定</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+        <guilabel>ストレージ</guilabel>画面で、インストール先のストレージデバイスを選択します。
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-storage">
+    <title>&agama; インストーラーのストレージ設定</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>ストレージ設定ページを表示している&productname; &productnumber;用&agama;インストーラーのスクリーンショット。インストール先のドライブ、ディスク暗号化設定、および詳細なパーティションレイアウトが表示されます。</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" arch="aarch64;power;x86_64" fileref="agama-installation-sles-storage.png" width="100%"/>
+        <imagedata os="sles" arch="zseries" fileref="agama-installation-sles-storage-s390x.png" width="100%"/>
+        <imagedata os="sles4sap" arch="power;x86_64" fileref="agama-installation-sap-storage.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" arch="aarch64;power;x86_64" fileref="agama-installation-sles-storage.png" width="100%"/>
+        <imagedata os="sles" arch="zseries" fileref="agama-installation-sles-storage-s390x.png" width="100%"/>
+        <imagedata os="sles4sap" arch="power;x86_64" fileref="agama-installation-sap-storage.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <!-- cwickert 2025-04-4: Beware, the buttons are labeled differently on IBM Z -->
+  <para>
+    現在、シングルディスクまたはLVMへのインストールがサポートされています。ディスクを変更するか、LVMを使用するには、<guimenu>インストール先のデバイス</guimenu>セクションで、デバイス名の横にある<guimenu><phrase arch="zseries">その他のデバイス</phrase><phrase arch="aarch64;power;x86_64">その他のオプション</phrase></guimenu>ボタンをクリックします。
+  </para>
+  <para arch="zseries">
+    DASD、&iscsi;、またはzFCPデバイスを使用するには、まずそれらを設定する必要があります。<guimenu>その他のオプション</guimenu>をクリックし、必要なテクノロジを選択します。DASDおよびzFCPオプションは、対応するデバイスが接続されている場合にのみ使用可能です。
+  </para>
+  <para arch="zseries">
+    DASDディスクをアクティブにするには、リストから選択して<menuchoice><guimenu>処理を実行</guimenu><guimenu>有効化</guimenu></menuchoice>をクリックします。ディスクが有効化されたら、前の画面でそのディスクをインストール対象として選択できます。
+  </para>
+  <para arch="zseries">
+    zFCPディスクを有効化するには、リストからそのディスクを選択し、縦3点リーダメニューをクリックして有効化します。有効化の状態が正しく表示されない場合は、<keycap>F5</keycap>を押してインストーラーの画面を更新してください。
+  <!-- cwickert 2025-08-15: Workaround for https://bugzilla.suse.com/show_bug.cgi?id=1248105
+      Can be deleted when https://bugzilla.suse.com/show_bug.cgi?id=1247445 is closed.
+    --></para>
+  <para>
+    &iscsi;ディスクを検出するには、&iscsi;イニシエーターを選択し、<guimenu>&iscsi;ターゲットを検出</guimenu>をクリックします。
+  </para>
+  <para>
+    デフォルトでは、ファイルシステムは選択されたデバイスの新しいパーティションとして割り当てられます。この動作は、<guimenu>インストール先のデバイス</guimenu>セクションの<guimenu>全ての内容を削除する</guimenu>ドロップダウンリストで変更できます。次のスペースポリシーを使用できます。
+  </para>
+  <variablelist>
+    <title>スペースポリシー</title>
+    <varlistentry>
+      <term>現在のコンテンツの削除</term>
+      <listitem>
+        <para>
+          すべてのパーティションが削除され、ディスク上のデータはすべて失われます。
+        </para>
+        </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>既存パーティションの縮小</term>
+      <listitem>
+        <para>
+          データは保持されますが、&agama;が必要に応じて現在のパーティションを縮小します。
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term>使用可能スペースの使用</term>
+      <listitem>
+        <para>
+          データは保持されます。どのパーティションにも割り当てられていないスペースのみが使用されます。
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>カスタム</term>
+      <listitem>
+        <para>
+          各パーティションの処理を選択します。
+        </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <important>
+    <title>RAIDサポート</title>
+    <para>
+      現在の&agama;ユーザーインターフェースでは、&agama;のストレージ設定でサポートされているすべてのオプションが表示されるわけではありません。RAIDなどの複雑な構成は、&agama;プロファイルを通じて適用できます。詳細については、<link xlink:href="https://documentation.suse.com/sles/&productnumber;/html/SLES-x86-64-agama-automated-installation/index.html#agama-advanced-storage-configuration"><citetitle>Agamaを使用した自動インストール</citetitle></link>の記事を参照してください。
+    </para>
+    <!-- https://bugzilla.suse.com/show_bug.cgi?id=1275457 -->
+    <para>
+      選択したストレージにRAID構成が既に存在する場合&mdash;（以前のインストールによるもの、または&agama;プロファイルによって作成されたもの）&mdash;、そのRAIDデバイスをインストールに使用できます。この場合、ユーザーインターフェースに<literal>Use RAID 0 (60.00 GiB) to host LVM</literal>のようなメッセージが表示されることがあります。この文脈において、<literal>RAID 0</literal>という用語はRAIDレベルではなく、RAIDデバイス（<filename>/dev/md/0</filename>）を指すことに注意してください。
+    </para>
+  </important>
+  <para>
+    個々のパーティションを編集するには、<guimenu>></guimenu>をクリックして<guimenu>パーティションとファイルシステム</guimenu>セクションを開きます。オプションで、Btrfsスナップショットやブートオプションを設定し、フルディスク暗号化（FDE）を有効にすることもできます。
+  </para>
+</topic>

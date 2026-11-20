@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+  <!ENTITY arch "<phrase xmlns='http://docbook.org/ns/docbook' arch='power'>&ppc64le;</phrase><phrase xmlns='http://docbook.org/ns/docbook' arch='x86_64'>x86_64</phrase><phrase xmlns='http://docbook.org/ns/docbook' arch='zseries'>&s390x;</phrase>">
+  <!-- FIXME Update this for release -->
+  <!ENTITY installer.iso  "SLES-Online-16.1-&arch;-*-GM.install.iso">
+  <!ENTITY full.iso "SLES-16.1-Full-&arch;-*-GM.install.iso">
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="task-deployment-booting"
+ role="task" xml:lang="ja"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+    <title>&agama;インストーラーの起動</title><!-- can be changed via merge
+in the assembly -->
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+       インストールの最初のステップは、&agama;インストーラーを起動することです。
+      </para>
+    </abstract>
+  </info>
+  <procedure xml:id="pro-booting-installer">
+    <title>&agama;インストーラーの起動</title>
+    <!-- power-specific steps -->
+    <step arch="power">
+      <para>
+        ISOイメージをVIOSサーバにコピーします。
+      </para>
+      <screen>&prompt.user;<command>scp</command> <filename>&installer.iso;</filename> padmin@<replaceable>VIOS_SERVER</replaceable></screen>
+      <para>
+        <replaceable>VIOS_SERVER</replaceable>はVIOSサーバのホスト名またはIPアドレスに置き換えます。
+      </para>
+    </step>
+    <step arch="power" xml:id="st-power-virtual-optical-device">
+      <para>
+        仮想光学デバイスを作成し、VIOSサーバの仮想デバイスにISOをロードします：
+      </para>
+<screen><prompt>(VIOS)$</prompt> <command>mkvopt</command> -name sles16-offline -file <filename>&installer.iso;</filename> -ro
+<prompt>(VIOS)$</prompt> <command>loadopt</command> -f -release -disk sles16-offline -vtd <replaceable>vcdXY</replaceable></screen>
+      <para>
+        <replaceable>vcdXY</replaceable>を、起動するLPARに接続されている仮想デバイスユニットに置き換えます。
+      </para>
+    </step>
+    <step arch="power">
+      <para>
+        接続された仮想デバイスからシステムを起動します。<menuchoice><guimenu>Select Boot Options (起動オプションの選択)</guimenu> <guimenu>Select Install/Boot Device (インストール/起動デバイスの選択)</guimenu> <guimenu>CD/DVD</guimenu> <guimenu>List All Devices (すべてのデバイスの一覧)</guimenu></menuchoice>を選択し、<xref linkend="st-power-virtual-optical-device"/>で作成した仮想光学デバイスを選択します。次に、<guimenu>Normal Boot Mode (通常起動モード)</guimenu>を選択し、選択内容を確認します。
+      </para>
+    </step>
+    <step arch="power">
+      <para>
+        コンソールにログインし、&rootuser;パスワードとIPアドレスを取得します。
+      </para>
+      <substeps>
+        <step>
+          <para>
+            <guimenu>Install &suse; &slea; &productnumber; (&arch;)</guimenu>を選択し、<keycap function="enter"/>を押してシステムを起動します。
+          </para>
+          <figure xml:id="fig-deployment-booting-ppc">
+            <title>&agama;インストーラーのブートメニュー</title>
+            <mediaobject>
+              <textobject role="description">
+                <phrase>&agama;インストーラーのPowerPCターミナルセッションにおけるGRUBブートローダー画面のスクリーンショット。メディアの検証やローカルブートの項目と並んで表示される、強調表示されたオプション<literal>Install &suse; &slea; &productnumber; (&arch;)</literal>からインストールを開始できます。</phrase>
+              </textobject>
+              <imageobject role="fo">
+                <imagedata fileref="agama-installation-sles-ppc-boot-agama.png" width="100%"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="agama-installation-sles-ppc-boot-agama.png" width="100%"/>
+              </imageobject>
+            </mediaobject>
+          </figure>
+        </step>
+        <step>
+          <para>
+            起動が終了すると、IPアドレスとルートパスワードが表示されます。
+          </para>
+          <figure xml:id="fig-deployment-booting-finish-ppc">
+            <title>&agama;インストーラーの起動メッセージ</title>
+            <mediaobject>
+              <textobject role="description">
+                <phrase>PowerPCハードウェア上のLinuxターミナルにおける、完了したAgamaインストーラーの起動プロセスのスクリーンショット。systemdサービスの起動ログ、SSHホストキーのフィンガープリント、Web UI接続URL、および一時的なルートログイン資格情報が表示されます。</phrase>
+              </textobject>
+              <imageobject role="fo">
+                <imagedata fileref="agama-installation-sles-ppc-boot-finish.png" width="100%"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="agama-installation-sles-ppc-boot-finish.png" width="100%"/>
+              </imageobject>
+            </mediaobject>
+          </figure>
+        </step>
+      </substeps>
+    </step>
+    <step arch="power">
+      <para>
+        Webブラウザを開き、コンソールで指定されたURLにアクセスします。&rootuser;パスワードを入力し、インストールを進めます。
+      </para>
+    </step>
+    <!-- End of power-specific steps -->
+
+    <!-- Z Series steps-->
+    <step xml:id="st-z-agama-iso" arch="zseries">
+      <para>
+        <filename>&installer.iso;</filename>をダウンロードしてマウントします：
+      </para>
+<screen>&prompt.sudo;<command>mkdir</command> -p <filename>/srv/ftp/agama</filename>
+&prompt.sudo;<command>mount</command> -o loop <filename>&installer.iso;</filename> <filename>/srv/ftp/agama</filename></screen>
+    </step>
+    <step xml:id="st-z-install-iso" arch="zseries" performance="optional">
+      <para>
+        エアギャップ環境または登録なしでインストールする場合は、<filename>&full.iso;</filename>をダウンロードしてマウントします。
+      </para>
+<screen>&prompt.sudo;<command>mkdir</command> -p <filename>/srv/ftp/agama-offline</filename>
+&prompt.sudo;<command>mount</command> -o loop <filename>&full.iso;</filename> <filename>/srv/ftp/agama-offline</filename></screen>
+    </step>
+    <step arch="zseries">
+      <para>
+        以下のparmfileを使用してインストールを開始します。
+      </para>
+      <example>
+        <title>parmfileの例</title>
+<screen>cio_ignore=all,!condev,<replaceable>!0.0.0160</replaceable><co xml:id="co-parmfile-cio-ignore"/>
+rd.zdev=<replaceable>dasd,0.0.0160</replaceable><co xml:id="co-parmfile-activate-dasd"/>
+rd.zdev=<replaceable>qeth,0.0.0800:0.0.0801:0.0.0802,layer2=1,portno=0</replaceable><co xml:id="co-parmfile-activate-qeth"/>
+ip=<replaceable>&wwwip;</replaceable><co xml:id="co-parmfile-ip"/>::192.168.3.254:24<co xml:id="co-parmfile-gw"/>::enc800:none
+ip=192.168.3.100::192.168.3.254:24:SLE16-Beta2:enc800:none
+hostname=<replaceable>&wsI;</replaceable><co xml:id="co-parmfile-hostname"/> nameserver=<replaceable>&dnsip;</replaceable><co xml:id="co-parmfile-dns"/>
+root=live:<replaceable>ftp://&ftpip;</replaceable>/agama/LiveOS/squashfs.img<co xml:id="co-parmfile-agama-source"/>
+live.password=<replaceable>linux</replaceable><co xml:id="co-parmfile-pw"/></screen>
+      </example>
+      <calloutlist>
+        <callout arearefs="co-parmfile-cio-ignore">
+          <para>
+            マシンが認識すべきデバイスのみを公開します
+          </para>
+        </callout>
+        <callout arearefs="co-parmfile-activate-dasd">
+          <para>
+            DASDデバイスの有効化
+          </para>
+        </callout>
+        <callout arearefs="co-parmfile-activate-qeth">
+          <para>
+            qethデバイスの有効化
+          </para>
+        </callout>
+        <callout arearefs="co-parmfile-ip">
+          <para>
+            IP設定。異なるパラメータはコロン（<literal>:</literal>）で区切られます。不要なパラメータは省略できます。その場合、コロンが2つ以上連続することになります。設定の完全なリファレンスについては、<command>man 7 dracut.cmdline</command>を参照してください。
+          </para>
+          <para>
+            IP設定が指定されていない場合、DHCPで割り当てられ、起動後にIPアドレスがコンソールに表示されます。
+          </para>
+          <important>
+            <title>複数のネットワークインタフェース</title>
+            <para>
+              システムに複数のネットワークインタフェースがある場合、インストール後にIP設定が入れ替わり、システムにアクセスできなくなる可能性があります。
+            </para>
+            <para>
+              これを防ぐには、各IP設定をインタフェース名またはMACアドレスで特定のインタフェースにバインドします。MACアドレスを使用する場合は、<literal>00:11:22:33:44:55</literal>ではなく<literal>00-11-22-33-44-55</literal>の形式で指定してください。
+            </para>
+          </important>
+          <tip>
+            <para>
+              <command>x3270</command>では、コンソールが読みにくいので、parmfileでネットワークを設定することが推奨されます。
+            </para>
+          </tip>
+        </callout>
+        <callout arearefs="co-parmfile-gw">
+          <para>
+            システムのゲートウェイのIPアドレス
+          </para>
+        </callout>
+        <callout arearefs="co-parmfile-hostname">
+          <para>
+            システムのホスト名。ホスト名は<literal>ip</literal>パラメータでも設定できますが、それは一時的なものであり、<literal>hostname</literal>は<filename>/etc/hostname</filename>に書き込まれます。
+          </para>
+        </callout>
+        <callout arearefs="co-parmfile-dns">
+          <para>
+            システムのDNSサーバのIPアドレス
+          </para>
+        </callout>
+        <callout arearefs="co-parmfile-agama-source">
+          <para>
+            <xref linkend="st-z-agama-iso"/>でマウントしたインストーラーISOのURI。LPARへのインストールでは、以下のようにISOファイルを直接使用します。
+          </para>
+<screen>root=live:<replaceable>ftp://&ftpip;/agama/&installer.iso;</replaceable></screen>
+        </callout>
+        <callout arearefs="co-parmfile-pw">
+          <para>
+            システム管理者&rootuser;のパスワード。パスワードを設定しないと、ランダムなパスワードが生成され、起動後にコンソールに表示されます。<command>x3270</command>では、コンソールが読みにくいので、parmfileで&rootuser;パスワードを設定することが推奨されます。
+          </para>
+        </callout>
+      </calloutlist>
+      <para>
+        parmfileを適宜調整します。
+      </para>
+      <stepalternatives>
+        <step>
+          <para>
+            エアギャップ環境でのインストールや登録なしでのインストールの場合は、<option>inst.install_url</option>をparmfileに追加して、<xref linkend="st-z-install-iso"/>にマウントされた&full.iso;からインストールします。
+          </para>
+<screen>inst.install_url=ftp://<replaceable>&ftpip;</replaceable>/agama-offline/install</screen>
+        </step>
+        <step>
+          <para>
+            VLANを使用している場合は、<option>vlan</option>パラメータを追加します。基盤となる物理デバイスではなく、仮想デバイスを指定するようにしてください。
+          </para>
+<screen>ip=<replaceable>&wwwip;</replaceable>::192.168.3.254:24::<replaceable>enc800.2174</replaceable>:none
+hostname=<replaceable>&wsI;</replaceable> nameserver=<replaceable>&dnsip;</replaceable> vlan=<replaceable>enc800.2174:enc800</replaceable></screen>
+        </step>
+      </stepalternatives>
+      <tip>
+        <title><literal>ifcfg</literal>と<literal>ip</literal>の構文の比較</title>
+        <para>
+          &sle;の以前のバージョンではインタフェース設定（<literal>ifcfg</literal>）ファイルで<command>linuxrc</command>を使用していましたが、&sle; 16では&nm;に対して<literal>ip</literal>構文で<command>dracut</command>を使用します。&agama;は一部のオプションの変換をサポートしていますが、新しくより強力な構文を使用することをお勧めします。
+        </para>
+        <table>
+          <title><literal>ifcfg</literal>と<literal>ip</literal>の比較</title>
+          <tgroup cols="2">
+            <colspec colwidth="50*"/>
+            <colspec colwidth="50*"/>
+            <thead>
+              <row>
+                <entry>
+                  <para>
+                    <literal>ifcfg</literal>
+                  </para>
+                </entry>
+                <entry>
+                  <para>
+                    <literal>dracut</literal>
+                  </para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <para>
+                    ifcfg=*=dhcp
+                  </para>
+                  </entry>
+                <entry>
+                  <para>
+                    ip=dhcp
+                  </para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    ifcfg=eth0=dhcp
+                  </para>
+                </entry>
+                <entry>
+                  <para>
+                    ip=eth0:dhcp
+                  </para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    ifcfg=eth0.10=192.168.0.100/24,192.168.0.1
+                  </para>
+                </entry>
+                <entry>
+                  <para>
+                    vlan=eth0.10:eth0 ip=192.168.0.100::192.168.0.1:24::eth0.10
+                  </para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    ifcfg="eth0=192.168.0.33/24 10.0.0.100/24,192.168.0.1,192.168.0.1 10.0.0.1,&exampledomain;"
+                  </para>
+                </entry>
+                <entry>
+                    <para>
+                    ip=192.168.0.33::192.168.0.1:24::eth0 nameserver=192.168.0.1 nameserver=10.0.0.1 ip=10.0.0.100:::24::eth0
+                  </para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <para>
+          <command>dracut</command>のオプションをすべて確認するには、<command>man 7 dracut.cmdline</command>を参照してください。
+        </para>
+      </tip>
+      <note>
+        <title>DASDエイリアスデバイス</title>
+        <para>
+          DASDエイリアスデバイスは、関連付けられたDASDベースデバイスが少なくとも1つ有効になるまで動作可能にならないという点で特殊です。その結果、&agama;インストーラーはそれらの実際のタイプ（ECKDまたはFBA DASD）を判別できません。
+        </para>
+        <para>
+          回避策として、デバイスタイプとして<literal>dasd-eckd</literal>を指定してください。これにより、<command>chzdev</command>は、動作中のデバイスがない場合でも、これらのデバイスを有効にするための<command>udev</command>ルールを作成するのに十分な情報を得ることができます。後でベースデバイスが有効になり、エイリアスデバイスが動作可能になると、それらは自動的にオンラインに設定されます。
+        </para>
+      </note>
+    </step>
+    <step arch="zseries">
+      <para>
+        parmfileから指定されたIPアドレスを指すWebブラウザを開きます。&rootuser;パスワードを入力し、インストールを進めます。
+      </para>
+    </step>
+    <!-- End of Z Series steps -->
+
+    <!-- Begin x_86_64 steps -->
+    <step arch="x86_64">
+      <para>
+        起動可能なメディアを選択し、インストールプロセスを開始します。
+      </para>
+      <stepalternatives>
+        <step>
+          <para>
+            ベアメタルサーバの場合は、起動するデバイスまたはストレージボリュームを選択します。
+          </para>
+        </step>
+        <step>
+          <para>
+            仮想マシンゲストの場合は、イメージファイルへのパスを選択します。想定されるワークロードに合わせて仮想マシンを構成します。
+          </para>
+        </step>
+      </stepalternatives>
+    </step>
+    <step arch="x86_64">
+      <para>
+        &grub;のブートメニューから、<guimenu>Install &suse; &slea; &productnumber; (&arch;)</guimenu>を選択します。
+      </para>
+      <figure xml:id="fig-deployment-booting-x86-64">
+        <title>&agama;インストーラーのブートメニュー</title>
+        <mediaobject>
+          <textobject role="description">
+            <phrase>&agama;インストーラーのPowerPCターミナルセッションにおけるGRUBブートローダー画面のスクリーンショット。メディアの検証やローカルブートの項目と並んで表示される、強調表示されたオプション<literal>Install &suse; &slea; &productnumber; (&arch;)</literal>からインストールを開始できます。</phrase>
+          </textobject>
+          <imageobject role="fo">
+            <imagedata fileref="agama-installation-sles-x86-64-grub2-boot-menu-pre-installation.png" width="100%"/>
+          </imageobject>
+          <imageobject role="html">
+            <imagedata fileref="agama-installation-sles-x86-64-grub2-boot-menu-pre-installation.png" width="100%"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+    </step>
+    <!-- End of x86_64 steps -->
+
+  </procedure>
+</topic>

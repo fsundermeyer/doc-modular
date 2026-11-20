@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-authentication"
+ role="reference" xml:lang="fr"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>Configuration de l'authentification</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+        Avant de continuer, créez un compte administrateur ou configurez l'authentification pour l'utilisateur &rootuser;.
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-authentication">
+    <title>Paramètres d'authentification de l'installateur &agama;</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>Capture d'écran de l'installateur &agama; pour &productname; &productnumber; montrant la page de configuration de l'authentification. Il propose des options pour configurer un compte administrateur et définir la méthode de connexion root.</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-authentication.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-authentication.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-authentication.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-authentication.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <para>
+    Avant de pouvoir poursuivre l'installation, vous devez créer un compte administrateur ou configurer l'authentification pour l'utilisateur &rootuser;.
+  </para>
+  <section xml:id="reference-deployment-manual-authentication-user">
+    <title>Création d'un compte administrateur</title>
+    <para>
+      Pour améliorer la sécurité, la connexion &rootuser; est désactivée par défaut dans &productname;. À la place, un utilisateur administrateur sert de compte de connexion principal. Cet administrateur peut exécuter des commandes administratives avec &sudo;.
+    </para>
+    <para>
+      Pour créer un compte administrateur, cochez la case <guimenu>Définir un utilisateur administrateur</guimenu> et saisissez les informations utilisateur nécessaires.
+    </para>
+    <variablelist>
+      <title>Paramètres de l'utilisateur administrateur</title>
+      <varlistentry>
+        <term>Nom complet</term>
+        <listitem>
+          <para>
+            Nom complet de l'utilisateur administrateur.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Nom d'utilisateur</term>
+        <listitem>
+          <para>
+            Un nom d'utilisateur. N'utilisez que des lettres minuscules (az), des chiffres (0-9) et des caractères <literal>.</literal> (point), <literal>-</literal> (trait d'union) et <literal>_</literal>(trait de soulignement). Évitez les autres caractères spéciaux et les caractères accentués.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Clé publique SSH (facultative)</term>
+        <listitem>
+          <para>
+            Collez une ou plusieurs clés publiques SSH pour activer la connexion sans mot de passe avec SSH. Pour ajouter une clé, appuyez sur <keycap function="enter"/> ou <keycap function="tab"/>. Pour supprimer une clé, appuyez sur <keycap function="backspace"/> ou <keycap function="delete"/>. Pour naviguer entre les clés, utilisez les flèches <keycap function="up"/> et <keycap function="down"/>.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <important>
+      <title>Aucun accès SSH pour &rootuser;</title>
+      <para>
+        L'accès SSH pour &rootuser; est désactivé par défaut. Par conséquent, il est vivement recommandé de créer un utilisateur système. Le premier utilisateur système se voit accorder les privilèges &sudo; automatiquement et peut également être utilisé pour accéder à &cockpit;.
+      </para>
+    </important>
+  </section>
+  <section xml:id="reference-deployment-manual-authentication-root">
+    <title>Configuration de l'utilisateur &rootuser;</title>
+    <para>
+      Configurez les méthodes d'authentification pour l'utilisateur &rootuser;. Vous pouvez utiliser un mot de passe sécurisé, une clé publique SSH ou les deux.
+    </para>
+    <figure xml:id="fig-deployment-manual-authentication-root">
+      <title>Configuration de l'authentification de l'utilisateur &rootuser; dans l'installateur &agama;</title>
+      <mediaobject>
+        <textobject role="description">
+          <phrase>Capture d'écran de l'installateur &agama; pour &productname; &productnumber; montrant la page de configuration de la connexion &rootuser;. Il comporte des champs pour saisir et confirmer le mot de passe, ainsi que pour saisir des clés publiques SSH.</phrase>
+        </textobject>
+        <imageobject role="fo">
+          <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-authentication-root.png" width="100%"/>
+          <imagedata os="sles4sap" fileref="agama-installation-sap-authentication-root.png" width="100%"/>
+        </imageobject>
+        <imageobject role="html">
+          <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-authentication-root.png" width="100%"/>
+          <imagedata os="sles4sap" fileref="agama-installation-sap-authentication-root.png" width="100%"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
+    <variablelist>
+      <title>Méthode de connexion root</title>
+      <varlistentry>
+        <term>Désactivé</term>
+        <listitem>
+          <para>
+            La connexion &rootuser; est désactivée et l'administrateur utilise &sudo; pour toutes les tâches administratives.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Mot de passe</term>
+        <listitem>
+          <para>
+            L'utilisateur &rootuser; peut se connecter avec un mot de passe. Configurez un mot de passe fort.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Clé publique SSH</term>
+        <listitem>
+          <para>
+            L'utilisateur &rootuser; peut se connecter avec une clé publique SSH. Collez une ou plusieurs clés publiques SSH. Pour ajouter une clé, appuyez sur <keycap function="enter"/> ou <keycap function="tab"/>. Pour supprimer une clé, appuyez sur <keycap function="backspace"/> ou <keycap function="delete"/>. Pour naviguer entre les différentes clés, utilisez les flèches <keycap function="up"/> et <keycap function="down"/>.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Mot de passe et clé publique SSH</term>
+        <listitem>
+          <para>
+            L'utilisateur &rootuser; peut se connecter à la fois avec un mot de passe et une ou plusieurs clés SSH. Configurez les deux comme décrit ci-dessus.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+</topic>

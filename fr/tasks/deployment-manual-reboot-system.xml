@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="task-deployment-manual-reboot-system"
+ role="task" xml:lang="fr"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+    <title>Redémarrage du système</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+        Lorsque l'installation est terminée, cliquez sur <guimenu>Redémarrer</guimenu>.
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-reboot-system">
+    <title>&agama; boîte de dialogue de l'installateur pour le redémarrage</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>Capture d'écran de l'installateur &agama; pour &productname; &productnumber; après l'installation. Il comporte un message de confirmation et un bouton principal <guimenu>Redémarrer</guimenu> pour redémarrer le système sous le système d'exploitation nouvellement installé.</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-complete-installation.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-complete-installation.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-complete-installation.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-complete-installation.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <para>
+    Une fois l'installation terminée, sélectionnez <guimenu>Redémarrer</guimenu>.
+  </para>
+  <figure xml:id="fig-deployment-manual-boot-menu">
+    <title>Redémarrer</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>Capture d'écran du menu de démarrage GRUB2. Il met en évidence l'entrée par défaut pour démarrer sur &productname;, ainsi que les options de démarrage avancées et celle permettant de démarrer à partir d'un instantané en lecture seule.</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-x86-64-grub2-boot-menu-post-installation.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-x86-64-grub2-boot-menu-post-installation.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-x86-64-grub2-boot-menu-post-installation.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-x86-64-grub2-boot-menu-post-installation.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <para>
+    Dans le menu de démarrage &grub;, démarrez le système nouvellement installé.
+  </para>
+</topic>

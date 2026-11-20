@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<topic xml:id="agama-installation-more-info"
+ role="glue" xml:lang="es"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+    <title>Información adicional</title>
+    <!-- can be changed via merge in the
+      assembly -->
+    <!--add author's e-mail address-->
+    <meta name="souvik.sarkar@suse.com" content="" its:translate="no"/>
+    <!-- add an abstract/para here, if you need one -->
+    <!-- can be changed via merge in the assembly -->
+  </info>
+  <para>
+    Para obtener información sobre temas relacionados, consulte los siguientes recursos:
+  </para>
+  <itemizedlist>
+    <listitem>
+      <para>
+        Documentación del &agama;proyecto de código abierto : <link xlink:href="https://agama-project.github.io/docs/user"></link>
+      </para>
+    </listitem>
+    <listitem arch="zseries">
+      <para>
+        &ibm;Documentación de  para &suse;distribuciones  https://www.ibm.com/docs/en/linux-on-systems?topic=distributions-suse-linux-enterprise-server
+      </para>
+    </listitem>
+    <listitem arch="power">
+      <para>
+        &ibm;Guías de inicio rápido de  para instalar Linux en &power;: <link xlink:href="https://www.ibm.com/docs/en/linux-on-systems?topic=servers-quick-start-guides-installing-linux"></link>.
+      </para>
+    </listitem>
+    <listitem arch="power">
+      <para>
+        &ibm;Instrucciones de  para instalar Linux en una partición lógica de PowerVM (LPAR) mediante un DVD virtual (vDVD): <link xlink:href="https://www.ibm.com/docs/en/linux-on-systems?topic=aim-installing-linux-powervm-lpar-by-using-virtual-dvd-vdvd"></link>.
+        </para>
+    </listitem>
+  </itemizedlist>
+</topic>

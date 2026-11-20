@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<topic xml:id="agama-installation-more-info"
+ role="glue" xml:lang="zh"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+    <title>更多信息</title>
+    <!-- can be changed via merge in the
+      assembly -->
+    <!--add author's e-mail address-->
+    <meta name="souvik.sarkar@suse.com" content="" its:translate="no"/>
+    <!-- add an abstract/para here, if you need one -->
+    <!-- can be changed via merge in the assembly -->
+  </info>
+  <para>
+    如需相关主题的信息，请参考以下资源：
+  </para>
+  <itemizedlist>
+    <listitem>
+      <para>
+        &agama; 开源项目文档：<link xlink:href="https://agama-project.github.io/docs/user"></link>
+      </para>
+    </listitem>
+    <listitem arch="zseries">
+      <para>
+        &ibm; 适用于 &suse; 发行版的文档：https://www.ibm.com/docs/en/linux-on-systems?topic=distributions-suse-linux-enterprise-server
+      </para>
+    </listitem>
+    <listitem arch="power">
+      <para>
+        &ibm; 在 &power; 上安装 Linux 的快速入门指南：<link xlink:href="https://www.ibm.com/docs/en/linux-on-systems?topic=servers-quick-start-guides-installing-linux"></link>。
+      </para>
+    </listitem>
+    <listitem arch="power">
+      <para>
+        &ibm; 关于使用虚拟 DVD（vDVD）在 PowerVM LPAR 上安装 Linux 的操作指南：<link xlink:href="https://www.ibm.com/docs/en/linux-on-systems?topic=aim-installing-linux-powervm-lpar-by-using-virtual-dvd-vdvd"></link>。
+        </para>
+    </listitem>
+  </itemizedlist>
+</topic>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-sle16-system-requirements"
+ role="reference" xml:lang="zh"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>系统要求</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+        安装 &productname; 需要以下最低资源。本节还列出了针对特定用途的建议。
+      </para>
+    </abstract>
+  </info>
+  <variablelist>
+    <title>最低系统安装要求</title>
+    <varlistentry>
+      <term>CPU</term>
+      <listitem>
+        <para arch="arm">
+          Armv8.0-A 或更高版本
+        </para>
+        <para arch="power">
+          POWER10 或更高版本
+        </para>
+        <para arch="x86_64">
+           &amd64; 或 &intel64;，微架构级别 x86-64-v2 或更高版本
+        </para>
+        <para arch="zseries">
+          z14 或更高版本
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>内存</term>
+      <listitem>
+        <para arch="arm;x86_64;zseries">
+          1024 MiB RAM
+        </para>
+        <para arch="power">
+          2048 MiB RAM
+        </para>
+        <para arch="arm;x86_64;zseries">
+          建议使用 512 MiB 交换空间
+        </para>
+        <para arch="power">
+          建议使用 1024 MiB 交换空间
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>硬盘</term>
+      <listitem>
+        <para>
+          2 GiB 可用磁盘空间（建议更多，所有模式需要 8.5 GiB），操作系统快照/回滚需要 32 GiB
+        </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <itemizedlist>
+    <title>针对特定用途的建议</title>
+    <listitem>
+      <para>
+        1 GiB 到 8 GiB RAM，每个处理器至少 512 MiB
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        8 GiB 硬盘空间，操作系统快照/回滚需要 32 GiB
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        对于打印服务器：使用速度更快的处理器或增加处理器，以提高基于服务器的打印速度
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        对于 Web 服务器：增加 RAM 以提高缓存性能，并增加处理器以提升 Web 应用程序的性能
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        对于数据库服务器：增加 RAM 以提高缓存性能，并使用多个磁盘实现并行 I/O
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        对于文件服务器：增加内存和磁盘，或使用独立磁盘冗余阵列（RAID）系统，以提高 I/O 吞吐量
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        对于 SAP 应用程序：SAP 建议的额外内存和磁盘
+      </para>
+    </listitem>
+  </itemizedlist>
+</topic>

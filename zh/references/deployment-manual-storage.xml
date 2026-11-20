@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-storage"
+ role="reference" xml:lang="zh"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>配置存储设置</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+        在<guilabel>存储</guilabel>屏幕中选择用于安装的存储设备。
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-storage">
+    <title>&agama; 安装程序存储配置</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>适用于 &productname; &productnumber; 的 &agama; 安装程序存储配置页面的屏幕截图。它显示了目标安装驱动器、磁盘加密设置以及详细的分区布局。</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" arch="aarch64;power;x86_64" fileref="agama-installation-sles-storage.png" width="100%"/>
+        <imagedata os="sles" arch="zseries" fileref="agama-installation-sles-storage-s390x.png" width="100%"/>
+        <imagedata os="sles4sap" arch="power;x86_64" fileref="agama-installation-sap-storage.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" arch="aarch64;power;x86_64" fileref="agama-installation-sles-storage.png" width="100%"/>
+        <imagedata os="sles" arch="zseries" fileref="agama-installation-sles-storage-s390x.png" width="100%"/>
+        <imagedata os="sles4sap" arch="power;x86_64" fileref="agama-installation-sap-storage.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <!-- cwickert 2025-04-4: Beware, the buttons are labeled differently on IBM Z -->
+  <para>
+    目前支持在单个磁盘或 LVM 上进行安装。要更换磁盘或使用 LVM，请在<guimenu>安装设备</guimenu>部分单击对应设备名称旁的<guimenu><phrase arch="zseries">更多设备</phrase><phrase arch="aarch64;power;x86_64">更多选项</phrase></guimenu>按钮。
+  </para>
+  <para arch="zseries">
+    要使用 DASD、&iscsi; 或 zFCP 设备，首先需要对它们进行配置。单击<guimenu>其他选项</guimenu>并选择所需的方法。DASD 和 zFCP 选项仅在挂接了相应设备时方可使用。
+  </para>
+  <para arch="zseries">
+    要激活 DASD 磁盘，请从列表中选择该磁盘，然后单击<menuchoice><guimenu>执行操作</guimenu><guimenu>激活</guimenu></menuchoice>。激活磁盘后，可在上一屏幕中选择将其用于安装。
+  </para>
+  <para arch="zseries">
+    要激活 zFCP 磁盘，请从列表中选择该磁盘，然后单击三点菜单将其激活。如果激活状态显示不正确，请按<keycap>F5</keycap>刷新安装程序界面。
+  <!-- cwickert 2025-08-15: Workaround for https://bugzilla.suse.com/show_bug.cgi?id=1248105
+      Can be deleted when https://bugzilla.suse.com/show_bug.cgi?id=1247445 is closed.
+    --></para>
+  <para>
+    要检测&iscsi;磁盘，请选择&iscsi;启动器并单击<guimenu>发现&iscsi;目标</guimenu>。
+  </para>
+  <para>
+    默认情况下，文件系统会作为新分区分配到所选设备上。您可以在<guimenu>安装设备</guimenu>部分的<guimenu>所有内容都将被删除</guimenu>下拉列表中更改此行为。系统提供以下磁盘空间策略：
+  </para>
+  <variablelist>
+    <title>磁盘空间策略</title>
+    <varlistentry>
+      <term>删除现有内容</term>
+      <listitem>
+        <para>
+          所有分区都将被删除，磁盘上的任何数据都将丢失。
+        </para>
+        </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>缩小现有分区</term>
+      <listitem>
+        <para>
+          数据会被保留，但&agama;会根据需要缩小当前分区。
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term>使用可用空间</term>
+      <listitem>
+        <para>
+          保留数据，仅使用未分配给任何分区的空闲空间。
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>自定义</term>
+      <listitem>
+        <para>
+          手动选择对每个分区的处理方式。
+        </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <important>
+    <title>RAID 支持</title>
+    <para>
+      当前的&agama;用户界面未提供&agama;存储配置所支持的所有选项。诸如 RAID 之类的复杂配置可以通过&agama;控制文件来应用。有关更多信息，请参阅<link xlink:href="https://documentation.suse.com/sles/&productnumber;/html/SLES-x86-64-agama-automated-installation/index.html#agama-advanced-storage-configuration"><citetitle>使用 Agama 进行自动安装</citetitle></link>一文。
+    </para>
+    <!-- https://bugzilla.suse.com/show_bug.cgi?id=1275457 -->
+    <para>
+      如果所选存储已具有 RAID 配置&mdash;（无论是来自之前的安装还是由&agama;控制文件创建）&mdash;，则这些 RAID 设备可用于安装。在这种情况下，您可能会在用户界面中看到类似<literal>Use RAID 0 (60.00 GiB) to host LVM</literal>的消息。请注意，在此上下文中，术语<literal>RAID 0</literal>指的是 RAID 设备（<filename>/dev/md/0</filename>），而不是 RAID 级别。
+    </para>
+  </important>
+  <para>
+    要单独编辑某个分区，请单击<guimenu>></guimenu>展开<guimenu>分区和文件系统</guimenu>部分。您也可以选择配置 Btrfs 快照、引导选项，并启用全盘加密（FDE）。
+  </para>
+</topic>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-software"
+ role="reference" xml:lang="es"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>Selección de software</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para os="sles;sles4nvidia">
+        Añada software adicional para instalar, como el &kvm; hipervisor o el servicio de gestión del sistema &cockpit;.
+      </para>
+      <para os="sles4sap">
+        Seleccione los patrones de software &sap; necesarios para su entorno. También puede añadir software adicional para instalar, como el &kvm; hipervisor o el servicio de gestión del sistema &cockpit;.
+      </para>
+    </abstract>
+  </info>
+  <para>
+  </para>
+  <figure xml:id="fig-deployment-manual-software">
+    <title>Selección de software del instalador de &agama;</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>Captura de pantalla del instalador de &agama; para &productname; &productnumber; que muestra la página de selección de software. Incluye paneles para seleccionar un entorno de escritorio y patrones de paquetes de software adicionales, junto con el espacio en disco necesario para la selección.</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-software.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-software.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-software.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-software.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <note>
+    <title>Confíe en la clave GPG del repositorio Package Hub</title>
+    <para>
+    Si selecciona el complemento Package Hub y ve una ventana emergente, confíe en la clave GPG de ese repositorio.
+    </para>
+  </note>
+  <section xml:id="reference-deployment-manual-software-desktop">
+    <title>Selección de un escritorio</title>
+    <para>
+      Seleccione un entorno de escritorio para obtener una interfaz gráfica. &productname; se distribuye con el escritorio &gnome;. <!-- You can install other desktop environments like KDE or Xfce, if you enable
+      the &ph; (see <xref linkend="reference-deployment-manual-registration-extensions"/>). -->
+    </para>
+  </section>
+  <section xml:id="reference-deployment-manual-software-patterns">
+    <title>Selección de patrones de software adicionales</title>
+    <para>
+      Los patrones son conjuntos de paquetes seleccionados para casos de uso y funciones habituales que permiten ampliar el sistema. <phrase os="sles;sles4nvidia">La instalación predeterminada incluye <literal>Kernel dump tooling</literal> y <literal>&selnx; support</literal>.</phrase><phrase os="sles4sap">La instalación predeterminada incluye <literal>&selnx; support</literal>.</phrase> Para eliminar o instalar patrones adicionales, haga clic en <guimenu>Cambiar patrones</guimenu>.
+    </para>
+  </section>
+  <section os="sles4sap" xml:id="reference-deployment-manual-sap-software">
+    <title>Selección de patrones de &sap;</title>
+    <para>
+      Tras hacer clic en <guimenu>Cambiar patrones</guimenu> desde la página de selección de software, puede seleccionar los patrones de &sap; necesarios para su instalación. Se encuentran en la sección <guimenu><emphasis role="bold">Soporte SAP</emphasis></guimenu>.
+    </para>
+    <figure xml:id="fig-deployment-manual-sap-software">
+    <title>Selección de software &sap; del instalador de &agama;</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>Captura de pantalla del instalador de &agama; para &productname; &productnumber; que muestra la pestaña de selección de software de Soporte &sap;. Presenta diferentes patrones seleccionables, incluidos algunos para &hana;, &netweaver; y &s4h;. </phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata fileref="agama-installation-sap-support-software.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata fileref="agama-installation-sap-support-software.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  </section>
+</topic>

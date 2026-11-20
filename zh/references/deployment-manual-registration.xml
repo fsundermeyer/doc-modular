@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-registration"
+ role="reference" xml:lang="zh"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>注册系统</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+       在<guilabel>注册</guilabel>屏幕中注册产品。
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-registration">
+    <title>&agama; 安装程序注册设置</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>&productname; &productnumber; 的 &agama; 安装程序截图，显示注册页面。它具有用于选择注册服务器、输入注册代码以及提供可选电子邮件地址的输入字段。</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-registration.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-registration.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-registration.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-registration.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <para>
+    选择一个注册服务器并输入详细信息：
+  </para>
+  <variablelist>
+    <title>注册设置</title>
+    <varlistentry>
+      <term>注册服务器</term>
+      <listitem>
+        <variablelist>
+          <varlistentry>
+            <term>&sccfull; </term>
+            <listitem>
+              <para>
+                使用 &scc; 进行注册。如果您的系统位于防火墙后，请确保可以从您的网络访问 <link xlink:href="&sccurl;">&sccurl;</link>。
+              </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>自定义</term>
+            <listitem>
+              <para>
+                使用您自己的 &smlm; 或 &rmt; 基础设施进行注册，并提供<guilabel>服务器 URL</guilabel>。在隔离环境中使用此选项。
+              </para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>注册代码</term>
+      <listitem>
+        <para>
+          输入 &productname; 的有效注册代码。代码默认隐藏，但可以通过点击眼睛图标显示。
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>电子邮件（可选）</term>
+      <listitem>
+        <para>
+          （可选）输入有效的电子邮件地址。对于组织，我们建议使用分配给注册代码的地址。
+        </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>
+    点击<guimenu>注册</guimenu>以注册系统。
+  </para>
+  <!-- 
+  <note>
+    <title>Optional registration for images signed with the developer's key</title>
+    <para>
+      Images signed with the developer's key may allow you to skip
+      registration before installation. If your product's image supports installation without
+      registration, you may see a pop-up similar to the following:
+    </para>
+    <informalfigure>
+      <mediaobject>
+        <textobject role="description"><phrase>Using images signed by developer's key</phrase>
+        </textobject>
+        <imageobject role="fo">
+          <imagedata fileref="agama-installation-sles-sap-no-reg-dev-key-sign.png" width="100%"/>
+        </imageobject>
+        <imageobject role="html">
+          <imagedata fileref="agama-installation-sles-sap-no-reg-dev-key-sign.png" width="100%"/>
+        </imageobject>
+      </mediaobject>
+    </informalfigure>
+    <para>
+      To install without registration, select <guimenu>Trust</guimenu> on the pop-up.
+    </para>
+  </note>
+  -->
+  <section xml:id="reference-deployment-manual-registration-extensions">
+    <title>注册扩展</title>
+    <para>
+      成功注册基础系统后，您可以注册其他扩展。以下扩展适用于 &productname;&nbsp;&productnumber;：
+    </para>
+    <variablelist>
+      <title>&productname; &productnumber; 系列的扩展</title>
+      <varlistentry os="sles;sles4nvidia">
+        <term>&sleha; 扩展 &productnumber;</term>
+        <listitem>
+          <para>
+            &sleha; 扩展提供行业领先的成熟开源高可用性群集技术，这些技术易于设置和使用。您可以将其部署在物理环境、虚拟环境或两者中。它将物理服务器、虚拟服务器或两者的任意组合进行群集，以满足您的业务需求。
+          </para>
+          <para>
+            要注册您的 &sleha; 扩展，请输入其注册代码并单击<guilabel>注册</guilabel>。
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>&ph; &productnumber;</term>
+        <listitem>
+          <para>
+            &ph; 是一个免费模块，提供对专为在 &productname; 上运行而构建的社区维护软件包的访问权限。这些优质软件包基于 &osuse; 发行版中使用的相同源代码构建，提供 &productname; 中现有软件之外的其他软件。此模块中的软件包不提供 L3 支持，但不会影响 &productname; 获得支持的资格。
+          </para>
+          <para>
+            要注册 &ph;，请单击<guimenu>注册</guimenu>。当安装程序询问是否信任 &ph; 储存库的签名密钥时，请单击<guimenu>信任</guimenu>。
+            </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+</topic>

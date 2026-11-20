@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-network"
+ role="reference" xml:lang="fr"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>configuration du réseau</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+       Gérez les connexions réseau dans l'écran <guilabel>Réseau</guilabel>.
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-network">
+    <title>&agama; paramètres réseau du programme d’installation</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>Capture d’écran du programme d’installation &agama; pour &productname; &productnumber; montrant la page de configuration réseau. Elle répertorie les interfaces réseau actives, les adresses IP et les options pour ajouter de nouvelles connexions filaires ou Wi-Fi. </phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-network.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-network.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-network.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-network.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <para>
+    La vue d'ensemble affiche les connexions réseau configurées dans un tableau. Cliquez sur les en-têtes pour trier les connexions par nom, type, état, périphérique ou adresse IP. Vous pouvez également filtrer par nom (avec des caractères génériques), type et état.
+  </para>
+  <para>
+  </para>
+  <section xml:id="reference-deployment-manual-network-edit">
+    <title>Modification d'une connexion</title>
+    <para>
+      Par défaut, &agama; configure une connexion avec DHCP. Pour modifier une connexion, cliquez sur les trois points à la fin de la ligne. Les options suivantes sont disponibles :
+    </para>
+    <variablelist>
+      <varlistentry>
+        <term>Détails</term>
+        <listitem>
+          <para>Affiche les détails de la connexion, à la fois l'état actuel et la configuration.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Modifier la connexion</term>
+        <listitem>
+          <para>
+            Modifie la connexion. Pour plus d'informations, reportez-vous à la <xref linkend="reference-deployment-manual-network-add"/>.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Déconnecter</term>
+        <listitem>
+          <para>
+            Déconnecte temporairement la connexion.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Supprimer</term>
+        <listitem>
+          <para>
+            Supprime la connexion et libère le périphérique pour une autre connexion.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+  <section xml:id="reference-deployment-manual-network-add" >
+    <title>Ajout d'une nouvelle connexion</title>
+    <para>
+      Cliquez sur <guimenu>Ajouter une connexion</guimenu> pour configurer une nouvelle connexion réseau. Les types suivants sont pris en charge :
+    </para>
+    <variablelist role="tabs">
+      <varlistentry>
+        <term>Ethernet</term>
+        <listitem>
+          <variablelist>
+            <title>Paramètres Ethernet</title>
+            <varlistentry>
+              <term>Nom</term>
+              <listitem>
+                <para>
+                  nom de la connexion. Des noms explicites peuvent utiliser la destination (<replaceable>Internet</replaceable>), le type de connexion (<replaceable>Ethernet</replaceable>) ou le périphérique (<replaceable>eth0</replaceable>, si la liaison au périphérique est activée). Texte libre, mais il est recommandé d'éviter les caractères spéciaux.
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Liaison au périphérique</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>aucune</term>
+                    <listitem>
+                      <para>
+                        La connexion est disponible pour tous les périphériques. Après un redémarrage ou un déplacement du système, le périphérique peut changer.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Choisi par nom</term>
+                    <listitem>
+                      <para>
+                        La connexion est identifiée par son nom dans le système.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Choisi par adresse MAC</term>
+                    <listitem>
+                      <para>
+                        La connexion est identifiée par son adresse physique.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+                <para>
+                  L'une des options est <guilabel>Aucun</guilabel>
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Paramètres IPv4</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>Automatique</term>
+                    <listitem>
+                      <para>
+                        L'adresse IP et la passerelle sont attribuées par le réseau via DHCP.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Manuel</term>
+                    <listitem>
+                      <para>
+                        Adresse IP statique, masque de réseau et passerelle. Saisissez une adresse IPv4 telle que <replaceable>192.168.1.1.</replaceable> ou <replaceable>192.168.1.1/24</replaceable>. Le préfixe est ajouté automatiquement s'il est omis.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Automatique + manuel</term>
+                    <listitem>
+                      <para>
+                        Configuration DHCP du réseau ainsi que des adresses et une passerelle statiques.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Paramètres IPv6</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>Automatique</term>
+                    <listitem>
+                      <para>
+                        L'adresse IP et la passerelle sont attribuées par le réseau via DHCP.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Manuel</term>
+                    <listitem>
+                      <para>
+                        Adresse IP statique, masque de réseau et passerelle. Saisissez une adresse IPv6 telle que <replaceable>2001:db8::1</replaceable> ou <replaceable>2001:db8::1/64</replaceable>. Le préfixe est ajouté automatiquement s'il est omis.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Automatique + manuel</term>
+                    <listitem>
+                      <para>
+                        Configuration DHCP du réseau ainsi que des adresses et une passerelle statiques.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Utiliser des serveurs DNS personnalisés</term>
+              <listitem>
+                <para>
+                  Activez et spécifiez les adresses des serveurs DNS.
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Utiliser des domaines de recherche DNS personnalisés</term>
+              <listitem>
+                <para>
+                  Activez et spécifiez le domaine de recherche DNS tel que <replaceable>&exampledomain;</replaceable>.
+                </para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Liaison</term>
+        <listitem>
+          <variablelist>
+            <title>Paramètres de liaison</title>
+            <varlistentry>
+              <term>Nom</term>
+              <listitem>
+                <para>
+                  nom de la connexion. Des noms explicites peuvent utiliser la destination (<replaceable>Internet</replaceable>), le type de connexion (<replaceable>Bond</replaceable>) ou le périphérique (<replaceable>bond0</replaceable>, si la liaison au périphérique est activée). Texte libre, mais pour des raisons pratiques, il est recommandé d'éviter les caractères spéciaux.
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Nom du périphérique</term>
+              <listitem>
+                <para>
+                  Fournissez un nom de périphérique tel que <replaceable>bond0</replaceable>.
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Mode de liaison</term>
+              <listitem>
+                <para>
+                  Sélectionnez le mode de liaison :
+                </para>
+                <variablelist>
+                  <varlistentry>
+                    <term>balance-rr</term>
+                    <listitem>
+                      <para>
+                        Les paquets sont transmis en mode tourniquet depuis la première jusqu'à la dernière interface disponible. Fournit la tolérance aux pannes et un équilibrage de la charge. Nécessite la prise en charge du commutateur. Certains commutateurs peuvent échouer dans ce mode.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>active-backup</term>
+                    <listitem>
+                      <para>
+                        Une seule interface réseau est active. En cas d'échec, une autre interface devient active. Assure une tolérance aux pannes. Aucune prise en charge de commutateur spécifique n'est requise.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>balance-xor</term>
+                    <listitem>
+                      <para>
+                        Le trafic est divisé entre toutes les interfaces disponibles en fonction du nombre d'interfaces incluses dans le périphérique lié. Fournit la tolérance aux pannes et un équilibrage de la charge. Nécessite la prise en charge du commutateur. Certains commutateurs peuvent échouer dans ce mode.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>broadcast</term>
+                    <listitem>
+                      <para>
+                        Tout le trafic est diffusé sur toutes les interfaces. Assure une tolérance aux pannes. Nécessite la prise en charge du commutateur. Certains commutateurs peuvent échouer dans ce mode.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>802.3ad</term>
+                    <listitem>
+                      <para>
+                        Aussi appelé LACP. Toutes les interfaces du groupe LACP doivent partager les mêmes paramètres de vitesse et de duplex, et doivent être connectées au même commutateur. Fournit la tolérance aux pannes et un équilibrage de la charge. Exige la prise en charge de <command>ethtool</command> dans les pilotes d'interface, et un commutateur qui prend en charge et est configuré pour le regroupement de liens dynamiques IEEE 802.3ad. Si votre commutateur prend en charge cette dernière, il s'agit du mode préféré.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>balance-tlb</term>
+                    <listitem>
+                      <para>
+                        Équilibrage adaptatif de la charge de transmission. Fournit la tolérance aux pannes et un équilibrage de la charge. Nécessite la prise en charge de l'outil <command>ethtool</command> dans les pilotes d'interface. Aucune prise en charge de commutateur spécifique n'est requise, mais certains commutateurs peuvent échouer dans ce mode.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>balance-alb</term>
+                    <listitem>
+                      <para>
+                        Équilibrage adaptatif de la charge. Fournit la tolérance aux pannes et un équilibrage de la charge. Nécessite la prise en charge de l'outil <command>ethtool</command> dans les pilotes d'interface. Aucune prise en charge de commutateur spécifique n'est requise, mais certains commutateurs peuvent échouer dans ce mode.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Paramètres IPv4</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>Automatique</term>
+                    <listitem>
+                      <para>
+                        L'adresse IP et la passerelle sont attribuées par le réseau via DHCP.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Manuel</term>
+                    <listitem>
+                      <para>
+                        Adresse IP statique, masque de réseau et passerelle. Saisissez une adresse IPv4 telle que <replaceable>192.168.1.1.</replaceable> ou <replaceable>192.168.1.1/24</replaceable>. Le préfixe est ajouté automatiquement s'il est omis.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Automatique + manuel</term>
+                    <listitem>
+                      <para>
+                        Configuration DHCP du réseau ainsi que des adresses et une passerelle statiques.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Paramètres IPv6</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>Automatique</term>
+                    <listitem>
+                      <para>
+                        L'adresse IP et la passerelle sont attribuées par le réseau via DHCP.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Manuel</term>
+                    <listitem>
+                      <para>
+                        Adresse IP statique, masque de réseau et passerelle. Saisissez une adresse IPv6 telle que <replaceable>2001:db8::1</replaceable> ou <replaceable>2001:db8::1/64</replaceable>. Le préfixe est ajouté automatiquement s'il est omis.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Automatique + manuel</term>
+                    <listitem>
+                      <para>
+                        Configuration DHCP du réseau ainsi que des adresses et une passerelle statiques.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Pont</term>
+        <listitem>
+          <variablelist>
+            <title>Paramètres du pont</title>
+            <varlistentry>
+              <term>Nom</term>
+              <listitem>
+                <para>
+                  nom de la connexion. Des noms explicites peuvent utiliser la destination (<replaceable>Internet</replaceable>), le type de connexion (<replaceable>Bridge</replaceable>) ou le périphérique (<replaceable>br0</replaceable>, si la liaison au périphérique est activée). Texte libre, mais il est recommandé d'éviter les caractères spéciaux.
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Nom du périphérique</term>
+              <listitem>
+                <para>
+                  Nom du périphérique, tel que <replaceable>br0</replaceable>
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Protocole Spanning Tree (STP)</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>Par défaut</term>
+                    <listitem>
+                      <para>
+                        (Activé avec les paramètres système par défaut)
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Personnalisé</term>
+                    <listitem>
+                      <para>
+                        Personnalisé (explicitement activé avec des paramètres manuels) : Délai de transfert (optionnel)
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Désactivé</term>
+                    <listitem>
+                      <para>
+                        (non utilisé par ce pont)
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Paramètres IPv4</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>Automatique</term>
+                    <listitem>
+                      <para>
+                        L'adresse IP et la passerelle sont attribuées par le réseau via DHCP.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Manuel</term>
+                    <listitem>
+                      <para>
+                        Adresse IP statique, masque de réseau et passerelle. Saisissez une adresse IPv4 telle que <replaceable>192.168.1.1.</replaceable> ou <replaceable>192.168.1.1/24</replaceable>. Le préfixe est ajouté automatiquement s'il est omis.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Automatique + manuel</term>
+                    <listitem>
+                      <para>
+                        Configuration DHCP du réseau ainsi que des adresses et une passerelle statiques.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Paramètres IPv6</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>Automatique</term>
+                    <listitem>
+                      <para>
+                        L'adresse IP et la passerelle sont attribuées par le réseau via DHCP.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Manuel</term>
+                    <listitem>
+                      <para>
+                        Adresse IP statique, masque de réseau et passerelle. Saisissez une adresse IPv6 telle que <replaceable>2001:db8::1</replaceable> ou <replaceable>2001:db8::1/64</replaceable>. Le préfixe est ajouté automatiquement s'il est omis.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Automatique + manuel</term>
+                    <listitem>
+                      <para>
+                        Configuration DHCP du réseau ainsi que des adresses et une passerelle statiques.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>VLAN</term>
+        <listitem>
+          <variablelist>
+            <title>Paramètres VLAN</title>
+            <varlistentry>
+              <term>Nom</term>
+              <listitem>
+                <para>
+                  nom de la connexion. Des noms explicites peuvent utiliser la destination (<replaceable>Internet</replaceable>), le type de connexion (<replaceable>VLAN</replaceable>) ou le périphérique (<replaceable>eth0</replaceable>, si la liaison au périphérique est activée). Texte libre, mais il est recommandé d'éviter les caractères spéciaux.
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Liaison au périphérique</term>
+              <listitem>
+                <para>
+                  L’une des options est <guilabel>Aucun</guilabel>
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Paramètres IPv4</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>Automatique</term>
+                    <listitem>
+                      <para>
+                        L'adresse IP et la passerelle sont attribuées par le réseau via DHCP.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Manuel</term>
+                    <listitem>
+                      <para>
+                        Adresse IP statique, masque de réseau et passerelle. Saisissez une adresse IPv4 telle que <replaceable>192.168.1.1.</replaceable> ou <replaceable>192.168.1.1/24</replaceable>. Le préfixe est ajouté automatiquement s'il est omis.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Automatique + manuel</term>
+                    <listitem>
+                      <para>
+                        Configuration DHCP du réseau ainsi que des adresses et une passerelle statiques.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Paramètres IPv6</term>
+              <listitem>
+                <variablelist>
+                  <varlistentry>
+                    <term>Automatique</term>
+                    <listitem>
+                      <para>
+                        L'adresse IP et la passerelle sont attribuées par le réseau via DHCP.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Manuel</term>
+                    <listitem>
+                      <para>
+                        Adresse IP statique, masque de réseau et passerelle. Saisissez une adresse IPv6 telle que <replaceable>2001:db8::1</replaceable> ou <replaceable>2001:db8::1/64</replaceable>. Le préfixe est ajouté automatiquement s'il est omis.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Automatique + manuel</term>
+                    <listitem>
+                      <para>
+                        Configuration DHCP du réseau ainsi que des adresses et une passerelle statiques.
+                      </para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+</topic>

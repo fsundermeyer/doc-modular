@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-language-region"
+ role="reference" xml:lang="fr"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>Configuration de la langue et de la région</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+        Ajustez les paramètres de localisation, tels que la langue, la disposition du clavier et le fuseau horaire, dans l'écran <guilabel>Langue et région</guilabel>.
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-language-region">
+    <title>&agama; paramètres de localisation du programme d'installation</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>Capture d'écran du &agama; programme d'installation pour &productname; &productnumber; montrant la page des paramètres de langue et de région. Il fournit des menus déroulants pour la langue d'affichage, la disposition du clavier et le fuseau horaire. </phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-localization.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-localization.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-localization.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-localization.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <variablelist>
+    <title>Paramètres de langue et de région</title>
+    <varlistentry>
+      <term>Langue</term>
+      <listitem>
+        <para>
+          La langue utilisée pour le système. Elle peut être différente de la langue utilisée lors de l'installation. Valeur par défaut : <literal>English (United States)</literal>.
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Clavier</term>
+      <listitem>
+        <para>
+          Le clavier utilisé pour le système. Il peut être différent du clavier utilisé lors de l'installation. Valeur par défaut : <literal>English (US)</literal>.
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Fuseau horaire</term>
+      <listitem>
+        <para>
+          Le fuseau horaire du système. La valeur par défaut est déterminée automatiquement en fonction de votre emplacement réseau.
+        </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>
+    Cliquez sur <guimenu>Accepter</guimenu> pour enregistrer vos modifications.
+  </para>
+</topic>

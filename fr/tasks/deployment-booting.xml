@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+  <!ENTITY arch "<phrase xmlns='http://docbook.org/ns/docbook' arch='power'>&ppc64le;</phrase><phrase xmlns='http://docbook.org/ns/docbook' arch='x86_64'>x86_64</phrase><phrase xmlns='http://docbook.org/ns/docbook' arch='zseries'>&s390x;</phrase>">
+  <!-- FIXME Update this for release -->
+  <!ENTITY installer.iso  "SLES-Online-16.1-&arch;-*-GM.install.iso">
+  <!ENTITY full.iso "SLES-16.1-Full-&arch;-*-GM.install.iso">
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="task-deployment-booting"
+ role="task" xml:lang="fr"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+    <title>Démarrage du programme d'installation &agama;</title><!-- can be changed via merge
+in the assembly -->
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+       La première étape de l'installation consiste à démarrer le programme d'installation &agama;.
+      </para>
+    </abstract>
+  </info>
+  <procedure xml:id="pro-booting-installer">
+    <title>Démarrage du programme d'installation &agama;</title>
+    <!-- power-specific steps -->
+    <step arch="power">
+      <para>
+        Copiez l'image ISO sur le serveur VIOS :
+      </para>
+      <screen>&prompt.user;<command>scp</command> <filename>&installer.iso;</filename> padmin@<replaceable>VIOS_SERVER</replaceable></screen>
+      <para>
+        Remplacez <replaceable>VIOS_SERVER</replaceable> par le nom d'hôte ou l'adresse IP de votre serveur VIOS.
+      </para>
+    </step>
+    <step arch="power" xml:id="st-power-virtual-optical-device">
+      <para>
+        Créez un périphérique optique virtuel et chargez le fichier ISO dans le périphérique virtuel sur le serveur VIOS :
+      </para>
+<screen><prompt>(VIOS)$</prompt> <command>mkvopt</command> -name sles16-offline -file <filename>&installer.iso;</filename> -ro
+<prompt>(VIOS)$</prompt> <command>loadopt</command> -f -release -disk sles16-offline -vtd <replaceable>vcdXY</replaceable></screen>
+      <para>
+        Remplacez <replaceable>vcdXY</replaceable> par votre unité de périphérique virtuel attachée à la partition logique que vous souhaitez démarrer.
+      </para>
+    </step>
+    <step arch="power">
+      <para>
+        Démarrez le système à partir du périphérique virtuel attaché. Sélectionnez <menuchoice><guimenu>Sélectionner les options de démarrage</guimenu> <guimenu>Sélectionner le périphérique d'installation/de démarrage</guimenu> <guimenu>CD/DVD</guimenu> <guimenu>Répertorier tous les périphériques</guimenu></menuchoice>, puis sélectionnez le périphérique optique virtuel que vous avez créé à l'étape <xref linkend="st-power-virtual-optical-device"/>. Sélectionnez ensuite <guimenu>Mode de démarrage standard</guimenu> et confirmez votre sélection.
+      </para>
+    </step>
+    <step arch="power">
+      <para>
+        Connectez-vous à la console pour obtenir le mot de passe &rootuser; et l'adresse IP.
+      </para>
+      <substeps>
+        <step>
+          <para>
+            Sélectionnez <guimenu>Installer &suse; &slea; &productnumber; (&arch;)</guimenu> et appuyez sur <keycap function="enter"/> pour démarrer le système.
+          </para>
+          <figure xml:id="fig-deployment-booting-ppc">
+            <title>Menu de démarrage du programme d'installation &agama;</title>
+            <mediaobject>
+              <textobject role="description">
+                <phrase>Capture d'écran du chargeur de démarrage GRUB dans une session de terminal PowerPC pour le programme d'installation &agama;. L'option en surbrillance <literal>Install &suse; &slea; &productnumber; (&arch;)</literal> permet de lancer l'installation ; des entrées permettent également de vérifier le support et de démarrer en mode local.</phrase>
+              </textobject>
+              <imageobject role="fo">
+                <imagedata fileref="agama-installation-sles-ppc-boot-agama.png" width="100%"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="agama-installation-sles-ppc-boot-agama.png" width="100%"/>
+              </imageobject>
+            </mediaobject>
+          </figure>
+        </step>
+        <step>
+          <para>
+            Une fois le démarrage terminé, l'adresse IP et le mot de passe root s'affichent.
+          </para>
+          <figure xml:id="fig-deployment-booting-finish-ppc">
+            <title>Messages de démarrage du programme d'installation &agama;</title>
+            <mediaobject>
+              <textobject role="description">
+                <phrase>Capture d'écran du processus de démarrage du programme d'installation Agama terminé dans un terminal Linux sur du matériel PowerPC. Il affiche les journaux de démarrage des services systemd, les empreintes des clés d'hôte SSH, les URL de connexion à l'interface Web et les informations d'identification temporaires de connexion root.</phrase>
+              </textobject>
+              <imageobject role="fo">
+                <imagedata fileref="agama-installation-sles-ppc-boot-finish.png" width="100%"/>
+              </imageobject>
+              <imageobject role="html">
+                <imagedata fileref="agama-installation-sles-ppc-boot-finish.png" width="100%"/>
+              </imageobject>
+            </mediaobject>
+          </figure>
+        </step>
+      </substeps>
+    </step>
+    <step arch="power">
+      <para>
+        Ouvrez un navigateur Web et accédez à l'URL indiquée dans la console. Entrez le mot de passe &rootuser;, puis procédez à l'installation.
+      </para>
+    </step>
+    <!-- End of power-specific steps -->
+
+    <!-- Z Series steps-->
+    <step xml:id="st-z-agama-iso" arch="zseries">
+      <para>
+        Téléchargez le fichier <filename>&installer.iso;</filename> et montez-le :
+      </para>
+<screen>&prompt.sudo;<command>mkdir</command> -p <filename>/srv/ftp/agama</filename>
+&prompt.sudo;<command>mount</command> -o loop <filename>&installer.iso;</filename> <filename>/srv/ftp/agama</filename></screen>
+    </step>
+    <step xml:id="st-z-install-iso" arch="zseries" performance="optional">
+      <para>
+        Pour une installation dans un environnement isolé physiquement ou sans enregistrement, téléchargez <filename>&full.iso;</filename> et montez-le.
+      </para>
+<screen>&prompt.sudo;<command>mkdir</command> -p <filename>/srv/ftp/agama-offline</filename>
+&prompt.sudo;<command>mount</command> -o loop <filename>&full.iso;</filename> <filename>/srv/ftp/agama-offline</filename></screen>
+    </step>
+    <step arch="zseries">
+      <para>
+        Utilisez le fichier parmfile suivant pour démarrer l'installation :
+      </para>
+      <example>
+        <title>exemple de fichier « parmfile »</title>
+<screen>cio_ignore=all,!condev,<replaceable>!0.0.0160</replaceable><co xml:id="co-parmfile-cio-ignore"/>
+rd.zdev=<replaceable>dasd,0.0.0160</replaceable><co xml:id="co-parmfile-activate-dasd"/>
+rd.zdev=<replaceable>qeth,0.0.0800:0.0.0801:0.0.0802,layer2=1,portno=0</replaceable><co xml:id="co-parmfile-activate-qeth"/>
+ip=<replaceable>&wwwip;</replaceable><co xml:id="co-parmfile-ip"/>::192.168.3.254:24<co xml:id="co-parmfile-gw"/>::enc800:none
+ip=192.168.3.100::192.168.3.254:24:SLE16-Beta2:enc800:none
+hostname=<replaceable>&wsI;</replaceable><co xml:id="co-parmfile-hostname"/> nameserver=<replaceable>&dnsip;</replaceable><co xml:id="co-parmfile-dns"/>
+root=live:<replaceable>ftp://&ftpip;</replaceable>/agama/LiveOS/squashfs.img<co xml:id="co-parmfile-agama-source"/>
+live.password=<replaceable>linux</replaceable><co xml:id="co-parmfile-pw"/></screen>
+      </example>
+      <calloutlist>
+        <callout arearefs="co-parmfile-cio-ignore">
+          <para>
+            N'exposez que les périphériques dont la machine doit avoir connaissance
+          </para>
+        </callout>
+        <callout arearefs="co-parmfile-activate-dasd">
+          <para>
+            Activation d'un périphérique DASD
+          </para>
+        </callout>
+        <callout arearefs="co-parmfile-activate-qeth">
+          <para>
+            Activation d'un périphérique qeth
+          </para>
+        </callout>
+        <callout arearefs="co-parmfile-ip">
+          <para>
+            Configuration IP. Les différents paramètres sont séparés par des deux-points (<literal>:</literal>). Vous pouvez omettre les paramètres inutiles en les laissant de côté, ce qui signifie que vous obtenez deux deux-points consécutifs ou plus. Pour une référence de configuration complète, reportez-vous à <command>man 7 dracut.cmdline</command>.
+          </para>
+          <para>
+            Si aucune configuration IP n'est spécifiée, une adresse IP sera attribuée par DHCP et affichée sur la console après le démarrage.
+          </para>
+          <important>
+            <title>Interfaces réseau multiples</title>
+            <para>
+              Si votre système possède plus d'une interface réseau, les configurations IP peuvent être permutées après l'installation, rendant le système inaccessible.
+            </para>
+            <para>
+              Pour éviter que cela ne se produise, liez chaque configuration IP à une interface particulière par le nom de l'interface ou l'adresse MAC. Si vous utilisez une adresse MAC, assurez-vous de la formater comme <literal>00-11-22-33-44-55</literal> au lieu de <literal>00:11:22:33:44:55</literal>
+            </para>
+          </important>
+          <tip>
+            <para>
+              Comme la console est difficile à lire sur <command>x3270</command>, il est recommandé de configurer le réseau dans le fichier parmfile.
+            </para>
+          </tip>
+        </callout>
+        <callout arearefs="co-parmfile-gw">
+          <para>
+            Adresse IP de la passerelle du système
+          </para>
+        </callout>
+        <callout arearefs="co-parmfile-hostname">
+          <para>
+            Nom d'hôte du système. Vous pouvez également définir le nom d'hôte dans le paramètre <literal>ip</literal>, mais cette valeur est temporaire, tandis que <literal>hostname</literal> est écrit dans <filename>/etc/hostname</filename>.
+          </para>
+        </callout>
+        <callout arearefs="co-parmfile-dns">
+          <para>
+            Adresse IP du serveur DNS du système
+          </para>
+        </callout>
+        <callout arearefs="co-parmfile-agama-source">
+          <para>
+            URI de l'image ISO du programme d'installation montée dans <xref linkend="st-z-agama-iso"/>. Pour une installation dans une LPAR, utilisez directement le fichier ISO comme suit :
+          </para>
+<screen>root=live:<replaceable>ftp://&ftpip;/agama/&installer.iso;</replaceable></screen>
+        </callout>
+        <callout arearefs="co-parmfile-pw">
+          <para>
+            Mot de passe de l'administrateur système &rootuser;. Si vous ne définissez pas de mot de passe, un mot de passe aléatoire sera généré et affiché sur la console après le démarrage. Comme la console est difficile à lire sur <command>x3270</command>, il est recommandé de définir un mot de passe &rootuser; dans le fichier parmfile.
+          </para>
+        </callout>
+      </calloutlist>
+      <para>
+        Ajustez votre fichier parmfile en conséquence :
+      </para>
+      <stepalternatives>
+        <step>
+          <para>
+            Pour une installation dans un environnement isolé physiquement ou sans enregistrement, ajoutez <option>inst.install_url</option> au fichier parmfile pour installer à partir de &full.iso; monté dans <xref linkend="st-z-install-iso"/> :
+          </para>
+<screen>inst.install_url=ftp://<replaceable>&ftpip;</replaceable>/agama-offline/install</screen>
+        </step>
+        <step>
+          <para>
+            Si vous utilisez un VLAN, ajoutez le paramètre <option>vlan</option>. Assurez-vous de spécifier le périphérique virtuel au lieu du périphérique physique sous-jacent.
+          </para>
+<screen>ip=<replaceable>&wwwip;</replaceable>::192.168.3.254:24::<replaceable>enc800.2174</replaceable>:none
+hostname=<replaceable>&wsI;</replaceable> nameserver=<replaceable>&dnsip;</replaceable> vlan=<replaceable>enc800.2174:enc800</replaceable></screen>
+        </step>
+      </stepalternatives>
+      <tip>
+        <title>Syntaxe <literal>ifcfg</literal> par rapport à <literal>ip</literal></title>
+        <para>
+          Les versions précédentes de &sle; utilisaient <command>linuxrc</command> avec des fichiers de configuration d'interface (<literal>ifcfg</literal>), tandis que &sle; 16 utilise <command>dracut</command> avec la syntaxe <literal>ip</literal> pour &nm;. Bien que &agama; prenne en charge la traduction de certaines options, il est recommandé d'utiliser la nouvelle syntaxe, plus puissante.
+        </para>
+        <table>
+          <title><literal>ifcfg</literal> par rapport à <literal>ip</literal></title>
+          <tgroup cols="2">
+            <colspec colwidth="50*"/>
+            <colspec colwidth="50*"/>
+            <thead>
+              <row>
+                <entry>
+                  <para>
+                    <literal>ifcfg</literal>
+                  </para>
+                </entry>
+                <entry>
+                  <para>
+                    <literal>dracut</literal>
+                  </para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <para>
+                    ifcfg=*=dhcp
+                  </para>
+                  </entry>
+                <entry>
+                  <para>
+                    ip=dhcp
+                  </para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    ifcfg=eth0=dhcp
+                  </para>
+                </entry>
+                <entry>
+                  <para>
+                    ip=eth0:dhcp
+                  </para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    ifcfg=eth0.10=192.168.0.100/24,192.168.0.1
+                  </para>
+                </entry>
+                <entry>
+                  <para>
+                    vlan=eth0.10:eth0 ip=192.168.0.100::192.168.0.1:24::eth0.10
+                  </para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    ifcfg="eth0=192.168.0.33/24 10.0.0.100/24,192.168.0.1,192.168.0.1 10.0.0.1,&exampledomain;"
+                  </para>
+                </entry>
+                <entry>
+                    <para>
+                    ip=192.168.0.33::192.168.0.1:24::eth0 nameserver=192.168.0.1 nameserver=10.0.0.1 ip=10.0.0.100:::24::eth0
+                  </para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <para>
+          Pour obtenir la liste complète des options <command>dracut</command>, reportez-vous à <command>man 7 dracut.cmdline</command>.
+        </para>
+      </tip>
+      <note>
+        <title>Périphériques alias DASD</title>
+        <para>
+          Les périphériques alias DASD sont particuliers en ce sens qu'ils apparaissent comme non opérationnels tant qu'au moins un périphérique de base DASD associé n'a pas été activé. Par conséquent, le programme d'installation &agama; ne peut pas déterminer leur type réel (DASD ECKD ou DASD FBA).
+        </para>
+        <para>
+          En guise de solution de contournement, spécifiez <literal>dasd-eckd</literal> comme type de périphérique. Cela devrait fournir à <command>chzdev</command> suffisamment d'informations pour créer des règles <command>udev</command> permettant d'activer ces périphériques, même sans périphérique fonctionnel. Lorsque le périphérique de base est activé ultérieurement et que les périphériques alias deviennent opérationnels, ils sont automatiquement mis en ligne.
+        </para>
+      </note>
+    </step>
+    <step arch="zseries">
+      <para>
+        Ouvrez un navigateur Web pointant vers l'adresse IP indiquée dans le fichier parmfile. Entrez le mot de passe &rootuser;, puis procédez à l'installation.
+      </para>
+    </step>
+    <!-- End of Z Series steps -->
+
+    <!-- Begin x_86_64 steps -->
+    <step arch="x86_64">
+      <para>
+        Sélectionnez un support de démarrage, puis lancez le processus d'installation.
+      </para>
+      <stepalternatives>
+        <step>
+          <para>
+            Pour un serveur sur matériel sans système d'exploitation, sélectionnez le périphérique ou le volume de stockage à partir duquel démarrer.
+          </para>
+        </step>
+        <step>
+          <para>
+            Pour une machine virtuelle invitée, sélectionnez le chemin d'accès au fichier image. Configurez la machine virtuelle pour la charge de travail prévue.
+          </para>
+        </step>
+      </stepalternatives>
+    </step>
+    <step arch="x86_64">
+      <para>
+        Dans le menu de démarrage &grub;, sélectionnez <guimenu>Installer &suse; &slea; &productnumber; (&arch;)</guimenu>.
+      </para>
+      <figure xml:id="fig-deployment-booting-x86-64">
+        <title>Menu de démarrage du programme d'installation &agama;</title>
+        <mediaobject>
+          <textobject role="description">
+            <phrase>Capture d'écran du chargeur de démarrage GRUB dans une session de terminal PowerPC pour le programme d'installation &agama;. L'option en surbrillance <literal>Install &suse; &slea; &productnumber; (&arch;)</literal> permet de lancer l'installation ; le menu comporte également des entrées pour la vérification du support et le démarrage local.</phrase>
+          </textobject>
+          <imageobject role="fo">
+            <imagedata fileref="agama-installation-sles-x86-64-grub2-boot-menu-pre-installation.png" width="100%"/>
+          </imageobject>
+          <imageobject role="html">
+            <imagedata fileref="agama-installation-sles-x86-64-grub2-boot-menu-pre-installation.png" width="100%"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+    </step>
+    <!-- End of x86_64 steps -->
+
+  </procedure>
+</topic>

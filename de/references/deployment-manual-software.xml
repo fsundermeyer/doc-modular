@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-software"
+ role="reference" xml:lang="de"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>Software auswählen</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para os="sles;sles4nvidia">
+        Fügen Sie der Installation zusätzliche Software hinzu, z. B. den &kvm;-Hypervisor oder den &cockpit;-Systemverwaltungsdienst.
+      </para>
+      <para os="sles4sap">
+        Wählen Sie die für Ihre Umgebung erforderlichen &sap;-Software-Schemata aus. Sie können auch zusätzliche Software zur Installation hinzufügen, z. B. den &kvm;-Hypervisor oder den &cockpit;-Systemverwaltungsdienst.
+      </para>
+    </abstract>
+  </info>
+  <para>
+  </para>
+  <figure xml:id="fig-deployment-manual-software">
+    <title>&agama;-Installer-Softwareauswahl</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>Screenshot des &agama;-Installers für &productname; &productnumber; mit der Software-Auswahlseite. Er bietet Bereiche zur Auswahl einer Desktop-Umgebung und zusätzlicher Softwarepaket-Schemata und zeigt den für die Auswahl erforderlichen Speicherplatz an.</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-software.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-software.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-software.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-software.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <note>
+    <title>GPG-Schlüssel für das Package Hub-Repository als vertrauenswürdig einstufen</title>
+    <para>
+    Wenn Sie das Package Hub-Add-on auswählen und ein Popup-Fenster sehen, stufen Sie den GPG-Schlüssel für dieses Repository als vertrauenswürdig ein.
+    </para>
+  </note>
+  <section xml:id="reference-deployment-manual-software-desktop">
+    <title>Desktop auswählen</title>
+    <para>
+      Wählen Sie eine Desktop-Umgebung für eine grafische Benutzeroberfläche. &productname; wird mit dem &gnome;-Desktop ausgeliefert. <!-- You can install other desktop environments like KDE or Xfce, if you enable
+      the &ph; (see <xref linkend="reference-deployment-manual-registration-extensions"/>). -->
+    </para>
+  </section>
+  <section xml:id="reference-deployment-manual-software-patterns">
+    <title>Zusätzliche Software-Schemata auswählen</title>
+    <para>
+      Schemata sind kuratierte Paketsammlungen für allgemeine Anwendungsfälle und Funktionen zur Erweiterung des Systems. <phrase os="sles;sles4nvidia">Die Standardinstallation umfasst <literal>Kernel dump tooling</literal> und <literal>&selnx; support</literal>.</phrase><phrase os="sles4sap">Die Standardinstallation umfasst <literal>&selnx; support</literal>.</phrase> Um zusätzliche Schemata zu entfernen oder zu installieren, klicken Sie auf <guimenu>Schemata ändern</guimenu>.
+    </para>
+  </section>
+  <section os="sles4sap" xml:id="reference-deployment-manual-sap-software">
+    <title>&sap;-Schemata auswählen</title>
+    <para>
+      Nachdem Sie auf der Software-Auswahlseite auf <guimenu>Schemata ändern</guimenu> geklickt haben, können Sie die für Ihre Installation erforderlichen &sap;-Schemata auswählen. Sie befinden sich im Abschnitt <guimenu><emphasis role="bold">SAP Support</emphasis></guimenu>.
+    </para>
+    <figure xml:id="fig-deployment-manual-sap-software">
+    <title>&agama;-Installer &sap;-Softwareauswahl</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>Screenshot des &agama;-Installers für &productname; &productnumber; mit der Registerkarte für die &sap;-Support-Softwareauswahl. Es bietet verschiedene auswählbare Schemata, darunter solche für &hana;, &netweaver; und &s4h;. </phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata fileref="agama-installation-sap-support-software.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata fileref="agama-installation-sap-support-software.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  </section>
+</topic>

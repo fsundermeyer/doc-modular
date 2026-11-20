@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-language-region"
+ role="reference" xml:lang="de"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>Sprach- und Regionseinstellungen festlegen</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+        Passen Sie die Lokalisierungseinstellungen wie Sprache, Tastaturlayout und Zeitzone auf dem Bildschirm <guilabel>Sprache und Region</guilabel> an.
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-language-region">
+    <title>&agama; Lokalisierungseinstellungen des Installers</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>Screenshot des &agama;-Installers für &productname; &productnumber;, der die Seite für Sprach- und Regionseinstellungen zeigt. Es bietet Dropdown-Auswahlmenüs für die Anzeigesprache, das Tastaturlayout und die Zeitzone. </phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-localization.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-localization.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-localization.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-localization.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <variablelist>
+    <title>Sprach- und Regionseinstellungen</title>
+    <varlistentry>
+      <term>Sprache</term>
+      <listitem>
+        <para>
+          Die für das System verwendete Sprache. Sie kann von der während der Installation verwendeten Sprache abweichen. Standardwert: <literal>English (United States)</literal>.
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Tastatur</term>
+      <listitem>
+        <para>
+          Die für das System verwendete Tastatur. Sie kann von der während der Installation verwendeten Tastatur abweichen. Standardwert: <literal>English (US)</literal>.
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Zeitzone</term>
+      <listitem>
+        <para>
+          Die Zeitzone des Systems. Der Standardwert wird automatisch basierend auf Ihrem Netzwerkstandort ermittelt.
+        </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>
+    Klicken Sie auf <guimenu>Übernehmen</guimenu>, um Ihre Änderungen zu speichern.
+  </para>
+</topic>

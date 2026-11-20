@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="task-deployment-manual-start-installation"
+ role="task" xml:lang="fr"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+    <title>Démarrage de l'installation</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+        Examinez la configuration dans l'aperçu de l'installation.
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-start-installation">
+    <title>&agama; Confirmation de l'installation dans l'installateur </title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>Capture d'écran de l'installateur &agama; pour &productname; &productnumber; montrant une boîte de dialogue modale pour confirmer le démarrage de l'installation.</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-confirm-installation.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-confirm-installation.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-confirm-installation.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-confirm-installation.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <para>
+    Cliquez sur <guimenu>Confirmer et installer</guimenu> pour démarrer l'installation.
+  </para>    
+  <para>
+    Attendez la fin de l'installation du système. La durée de l'installation dépend des performances du système, de la taille de l'installation et de la vitesse de votre connexion réseau.
+  </para>
+  <tip>
+    <title>journaux d'installation</title>
+    <para>
+    Vous pouvez utiliser le menu fléché en haut à droite de la fenêtre pour afficher les journaux et les messages système.
+    </para>
+  </tip>
+</topic>

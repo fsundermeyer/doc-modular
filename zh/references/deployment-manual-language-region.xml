@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/openSUSE/doc-kit -->
+<!-- This file can be edited downstream. -->
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "../common/generic-entities.ent">
+    %entities;
+]>
+<!-- refers to legacy doc: <add github link to legacy doc piece, if applicable> -->
+<!-- point back to this document with a similar comment added to your legacy doc piece -->
+<!-- refer to README.md for file and id naming conventions -->
+<!-- metadata is dealt with on the assembly level -->
+<topic xml:id="reference-deployment-manual-language-region"
+ role="reference" xml:lang="zh"
+ xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:trans="http://docbook.org/ns/transclusion">
+  <info>
+   <title>设置语言和区域</title>
+    <meta name="maintainer" content="cwickert@suse.com" its:translate="no"/>
+    <abstract><!-- can be changed via merge in the assembly -->
+      <para>
+        在<guilabel>语言和区域</guilabel>屏幕中调整本地化设置，例如语言、键盘布局和时区。
+      </para>
+    </abstract>
+  </info>
+  <figure xml:id="fig-deployment-manual-language-region">
+    <title>&agama;安装程序本地化设置</title>
+    <mediaobject>
+      <textobject role="description">
+        <phrase>&productname; &productnumber;的&agama;安装程序屏幕截图，显示语言和区域设置页面。它为显示语言、键盘布局和时区提供了下拉选择菜单。</phrase>
+      </textobject>
+      <imageobject role="fo">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-localization.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-localization.png" width="100%"/>
+      </imageobject>
+      <imageobject role="html">
+        <imagedata os="sles;sles4nvidia" fileref="agama-installation-sles-localization.png" width="100%"/>
+        <imagedata os="sles4sap" fileref="agama-installation-sap-localization.png" width="100%"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <variablelist>
+    <title>语言和区域设置</title>
+    <varlistentry>
+      <term>语言</term>
+      <listitem>
+        <para>
+          系统使用的语言。它可能与安装期间使用的语言不同。默认值：<literal>English (United States)</literal>。
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>键盘</term>
+      <listitem>
+        <para>
+          系统使用的键盘。它可能与安装期间使用的键盘不同。默认值：<literal>English (US)</literal>。
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>时区</term>
+      <listitem>
+        <para>
+          系统的时区。默认值是根据您的网络位置自动确定的。
+        </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>
+    单击<guimenu>接受</guimenu>保存您的更改。
+  </para>
+</topic>
